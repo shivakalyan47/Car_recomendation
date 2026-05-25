@@ -1,0 +1,635 @@
+Car Name,Company Name,Price,Mileage,Fuel Type,Seats,Transmission,Engine
+Maruti Alto K10,Maruti Suzuki,3.99,24.39,Petrol,5,Manual,998
+Maruti Alto K10 CNG,Maruti Suzuki,5.96,33.85,CNG,5,Manual,998
+Maruti S-Presso,Maruti Suzuki,4.26,21.7,Petrol,5,Manual,998
+Maruti Celerio,Maruti Suzuki,5.37,25.24,Petrol,5,Manual,998
+Maruti Celerio AMT,Maruti Suzuki,6.38,26.68,Petrol,5,Automatic,998
+Maruti Wagon R,Maruti Suzuki,5.54,24.35,Petrol,5,Manual,1197
+Maruti Wagon R CNG,Maruti Suzuki,6.89,34.05,CNG,5,Manual,998
+Maruti Swift,Maruti Suzuki,6.49,25.75,Petrol,5,Manual,1197
+Maruti Swift AMT,Maruti Suzuki,7.5,25.75,Petrol,5,Automatic,1197
+Maruti Dzire,Maruti Suzuki,6.57,22.41,Petrol,5,Manual,1197
+Maruti Dzire AMT,Maruti Suzuki,7.9,22.61,Petrol,5,Automatic,1197
+Maruti Baleno,Maruti Suzuki,6.66,22.35,Petrol,5,Manual,1197
+Maruti Brezza,Maruti Suzuki,8.34,17.38,Petrol,5,Manual,1462
+Maruti Brezza AT,Maruti Suzuki,11.1,19.89,Petrol,5,Automatic,1462
+Maruti Ertiga,Maruti Suzuki,8.69,20.51,Petrol,7,Manual,1462
+Maruti Ertiga CNG,Maruti Suzuki,10.78,26.11,CNG,7,Manual,1462
+Maruti XL6,Maruti Suzuki,11.61,20.97,Petrol,6,Manual,1462
+Maruti Grand Vitara Hybrid,Maruti Suzuki,18.43,27.97,Petrol,5,Automatic,1490
+Maruti Fronx,Maruti Suzuki,7.51,21.79,Petrol,5,Manual,1197
+Maruti Jimny,Maruti Suzuki,12.74,16.94,Petrol,4,Manual,1462
+Hyundai Grand i10 Nios,Hyundai,5.92,20.7,Petrol,5,Manual,1197
+Hyundai Grand i10 CNG,Hyundai,7.68,27.3,CNG,5,Manual,1197
+Hyundai i20,Hyundai,7.04,20.3,Petrol,5,Manual,1197
+Hyundai i20 N Line,Hyundai,9.99,19.6,Petrol,5,Automatic,998
+Hyundai Aura,Hyundai,6.49,20.5,Petrol,5,Manual,1197
+Hyundai Exter,Hyundai,6.13,19.4,Petrol,5,Manual,1197
+Hyundai Venue,Hyundai,7.94,17.5,Petrol,5,Manual,1197
+Hyundai Venue Turbo DCT,Hyundai,11.86,18.3,Petrol,5,Automatic,998
+Hyundai Creta Petrol,Hyundai,11.0,17.4,Petrol,5,Manual,1497
+Hyundai Creta Diesel,Hyundai,12.45,21.8,Diesel,5,Manual,1493
+Hyundai Creta IVT,Hyundai,15.82,17.7,Petrol,5,Automatic,1497
+Hyundai Alcazar Diesel,Hyundai,17.78,20.4,Diesel,7,Manual,1493
+Hyundai Verna Turbo,Hyundai,14.84,20.0,Petrol,5,Manual,1482
+Hyundai Verna DCT,Hyundai,16.08,20.6,Petrol,5,Automatic,1482
+Hyundai Tucson,Hyundai,29.02,18.0,Diesel,5,Automatic,1997
+Hyundai Ioniq 5 EV,Hyundai,46.05,31.0,Electric,5,Automatic,0
+Tata Tiago,Tata Motors,5.65,20.01,Petrol,5,Manual,1199
+Tata Tiago CNG,Tata Motors,6.55,26.49,CNG,5,Manual,1199
+Tata Tiago EV,Tata Motors,7.99,28.0,Electric,5,Automatic,0
+Tata Tigor,Tata Motors,6.3,19.28,Petrol,5,Manual,1199
+Tata Punch,Tata Motors,6.13,20.09,Petrol,5,Manual,1199
+Tata Punch EV,Tata Motors,10.99,29.5,Electric,5,Automatic,0
+Tata Altroz Petrol,Tata Motors,6.6,19.33,Petrol,5,Manual,1199
+Tata Altroz Diesel,Tata Motors,8.8,23.64,Diesel,5,Manual,1497
+Tata Nexon Facelift,Tata Motors,8.15,17.44,Petrol,5,Manual,1199
+Tata Nexon Diesel,Tata Motors,11.1,23.23,Diesel,5,Manual,1497
+Tata Nexon EV,Tata Motors,14.49,30.5,Electric,5,Automatic,0
+Tata Harrier,Tata Motors,15.49,16.8,Diesel,5,Manual,1956
+Tata Harrier Automatic,Tata Motors,19.99,14.6,Diesel,5,Automatic,1956
+Tata Safari,Tata Motors,16.19,16.3,Diesel,7,Manual,1956
+Tata Safari Automatic,Tata Motors,20.69,14.5,Diesel,7,Automatic,1956
+Tata Curvv EV,Tata Motors,17.49,33.0,Electric,5,Automatic,0
+Honda Amaze,Honda,7.16,18.6,Petrol,5,Manual,1199
+Honda Amaze CVT,Honda,8.78,18.3,Petrol,5,Automatic,1199
+Honda City,Honda,11.71,17.8,Petrol,5,Manual,1498
+Honda City CVT,Honda,13.84,18.4,Petrol,5,Automatic,1498
+Honda City Hybrid e:HEV,Honda,18.89,27.1,Petrol,5,Automatic,1498
+Honda Elevate,Honda,11.58,15.31,Petrol,5,Manual,1498
+Honda Elevate CVT,Honda,13.21,16.92,Petrol,5,Automatic,1498
+Mahindra Thar RWD,Mahindra,11.25,15.2,Diesel,4,Manual,1497
+Mahindra Thar 4WD Petrol,Mahindra,14.3,12.8,Petrol,4,Manual,1997
+Mahindra Thar 4WD Diesel,Mahindra,14.85,13.0,Diesel,4,Manual,2184
+Mahindra Scorpio Classic,Mahindra,13.59,14.4,Diesel,7,Manual,2179
+Mahindra Scorpio-N Petrol,Mahindra,13.6,12.5,Petrol,7,Manual,1997
+Mahindra Scorpio-N Diesel,Mahindra,14.25,14.0,Diesel,7,Manual,2184
+Mahindra Scorpio-N AT,Mahindra,16.99,13.5,Diesel,7,Automatic,2184
+Mahindra XUV300 Petrol,Mahindra,7.99,17.0,Petrol,5,Manual,1197
+Mahindra XUV300 Diesel,Mahindra,9.9,20.0,Diesel,5,Manual,1497
+Mahindra XUV400 EV,Mahindra,15.49,31.2,Electric,5,Automatic,0
+Mahindra XUV700 Petrol AX5,Mahindra,17.69,13.0,Petrol,5,Manual,1997
+Mahindra XUV700 Diesel AX7,Mahindra,19.79,15.5,Diesel,7,Manual,2184
+Mahindra XUV700 Diesel AT,Mahindra,21.59,14.8,Diesel,7,Automatic,2184
+Mahindra Bolero Neo,Mahindra,9.9,17.2,Diesel,7,Manual,1493
+Toyota Glanza,Toyota,6.81,22.35,Petrol,5,Manual,1197
+Toyota Urban Cruiser Taisor,Toyota,7.74,21.5,Petrol,5,Manual,1197
+Toyota Urban Cruiser Hyryder,Toyota,11.14,21.11,Petrol,5,Manual,1462
+Toyota Hyryder Hybrid,Toyota,16.66,27.97,Petrol,5,Automatic,1490
+Toyota Innova Crysta Diesel,Toyota,19.99,12.0,Diesel,7,Manual,2393
+Toyota Innova Hycross Hybrid,Toyota,25.97,23.24,Petrol,7,Automatic,1987
+Toyota Fortuner Petrol,Toyota,33.43,10.0,Petrol,7,Manual,2694
+Toyota Fortuner Diesel,Toyota,35.93,12.5,Diesel,7,Manual,2755
+Toyota Fortuner Diesel AT,Toyota,38.21,11.8,Diesel,7,Automatic,2755
+Toyota Hilux,Toyota,30.4,12.0,Diesel,5,Manual,2755
+Toyota Camry Hybrid,Toyota,46.17,22.7,Petrol,5,Automatic,2487
+Kia Sonet Petrol,Kia,7.99,18.8,Petrol,5,Manual,1197
+Kia Sonet Turbo DCT,Kia,11.99,19.2,Petrol,5,Automatic,998
+Kia Sonet Diesel,Kia,9.79,24.1,Diesel,5,Manual,1493
+Kia Seltos Petrol,Kia,10.9,17.0,Petrol,5,Manual,1497
+Kia Seltos Diesel,Kia,12.0,20.7,Diesel,5,Manual,1493
+Kia Seltos Turbo DCT,Kia,18.3,17.9,Petrol,5,Automatic,1482
+Kia Carens Petrol,Kia,10.45,17.9,Petrol,7,Manual,1497
+Kia Carens Diesel AT,Kia,16.55,18.4,Diesel,7,Automatic,1493
+Kia EV6,Kia,60.95,32.5,Electric,5,Automatic,0
+Skoda Slavia 1.0 TSI,Skoda,11.53,19.47,Petrol,5,Manual,999
+Skoda Slavia 1.5 TSI DSG,Skoda,16.63,18.73,Petrol,5,Automatic,1498
+Skoda Kushaq 1.0 TSI,Skoda,11.89,17.88,Petrol,5,Manual,999
+Skoda Kushaq 1.5 TSI DSG,Skoda,17.39,18.09,Petrol,5,Automatic,1498
+Volkswagen Virtus 1.0 TSI,Volkswagen,11.48,19.4,Petrol,5,Manual,999
+Volkswagen Virtus 1.5 GT DSG,Volkswagen,16.19,18.6,Petrol,5,Automatic,1498
+Volkswagen Taigun 1.0 TSI,Volkswagen,11.62,17.8,Petrol,5,Manual,999
+Volkswagen Taigun 1.5 GT DCT,Volkswagen,16.79,18.1,Petrol,5,Automatic,1498
+MG Astor Petrol,MG Motors,9.98,15.4,Petrol,5,Manual,1498
+MG Hector Diesel,MG Motors,18.28,15.5,Diesel,5,Manual,1956
+MG ZS EV,MG Motors,18.98,30.0,Electric,5,Automatic,0
+MG Comet EV,MG Motors,6.99,23.0,Electric,4,Automatic,0
+BYD Atto 3 EV,BYD,33.99,32.1,Electric,5,Automatic,0
+BYD Seal EV Premium,BYD,45.55,36.0,Electric,5,Automatic,0
+BMW 3 Series Gran Limousine,BMW,60.6,15.39,Petrol,5,Automatic,1998
+BMW 3 Series GL Diesel,BMW,62.5,19.61,Diesel,5,Automatic,1995
+BMW X1 sDrive20i,BMW,49.5,16.35,Petrol,5,Automatic,1499
+BMW X1 sDrive18d,BMW,52.5,20.37,Diesel,5,Automatic,1995
+BMW X5 xDrive40i,BMW,96.0,12.0,Petrol,5,Automatic,2998
+BMW X5 xDrive30d,BMW,98.5,12.0,Diesel,5,Automatic,2993
+BMW i4 eDrive40 EV,BMW,72.5,35.0,Electric,5,Automatic,0
+Audi A4 40 TFSI,Audi,45.34,17.4,Petrol,5,Automatic,1984
+Audi Q3 40 TFSI,Audi,43.8,14.93,Petrol,5,Automatic,1984
+Audi Q5 45 TFSI,Audi,65.18,13.4,Petrol,5,Automatic,1984
+Audi A6 45 TFSI,Audi,64.2,14.11,Petrol,5,Automatic,1984
+Audi Q7 55 TFSI,Audi,88.66,11.2,Petrol,7,Automatic,2995
+Audi e-tron 55 EV,Audi,124.0,30.0,Electric,5,Automatic,0
+Mercedes-Benz A-Class Limousine,Mercedes-Benz,46.05,17.5,Petrol,5,Automatic,1332
+Mercedes-Benz C-Class C200,Mercedes-Benz,61.85,16.9,Petrol,5,Automatic,1496
+Mercedes-Benz C-Class C220d,Mercedes-Benz,63.0,23.0,Diesel,5,Automatic,1993
+Mercedes-Benz E-Class E200,Mercedes-Benz,76.05,15.0,Petrol,5,Automatic,1991
+Mercedes-Benz E-Class E220d,Mercedes-Benz,77.25,16.1,Diesel,5,Automatic,1993
+Mercedes-Benz GLA 200,Mercedes-Benz,51.75,17.4,Petrol,5,Automatic,1332
+Mercedes-Benz GLC 300,Mercedes-Benz,74.45,12.74,Petrol,5,Automatic,1999
+Mercedes-Benz GLE 300d,Mercedes-Benz,96.65,14.0,Diesel,5,Automatic,1993
+Mercedes-Benz GLS 450d,Mercedes-Benz,137.0,11.5,Diesel,7,Automatic,2989
+Mercedes-Benz EQE 500 SUV EV,Mercedes-Benz,139.0,34.5,Electric,5,Automatic,0
+Tesla Model 3 Standard,Tesla,45.0,32.0,Electric,5,Automatic,0
+Tesla Model Y Long Range,Tesla,55.0,33.5,Electric,5,Automatic,0
+Tesla Model S Plaid,Tesla,110.0,36.5,Electric,5,Automatic,0
+Tesla Model X Dual Motor,Tesla,120.0,34.0,Electric,7,Automatic,0
+MG Hector Diesel Max,MG Motors,19.52,15.47,Diesel,5,Manual,1956
+Kia EV6 Max,Kia,63.02,30.69,Electric,5,Automatic,0
+Maruti Ertiga Pro,Maruti Suzuki,8.48,22.51,Petrol,7,Manual,1462
+BYD Seal EV Premium Line,BYD,51.46,39.2,Electric,5,Automatic,0
+Mahindra XUV700 Diesel AT X,Mahindra,23.96,13.44,Diesel,7,Automatic,2184
+Hyundai Grand i10 Nios X,Hyundai,5.11,21.55,Petrol,5,Manual,1197
+MG Hector Diesel Z,MG Motors,15.68,16.82,Diesel,5,Manual,1956
+Mercedes-Benz C-Class C200 Z,Mercedes-Benz,59.56,15.82,Petrol,5,Automatic,1496
+Toyota Urban Cruiser Taisor X,Toyota,8.46,21.79,Petrol,5,Manual,1197
+Kia Seltos Petrol Z,Kia,12.49,18.41,Petrol,5,Manual,1497
+Audi Q5 45 TFSI Line,Audi,58.34,12.15,Petrol,5,Automatic,1984
+Volkswagen Taigun 1.0 TSI Plus,Volkswagen,11.95,18.5,Petrol,5,Manual,999
+MG ZS EV Line,MG Motors,18.3,28.78,Electric,5,Automatic,0
+Tesla Model 3 Standard X,Tesla,51.34,34.72,Electric,5,Automatic,0
+Honda Amaze X,Honda,7.89,20.35,Petrol,5,Manual,1199
+Maruti Alto K10 CNG Line,Maruti Suzuki,6.56,36.86,CNG,5,Manual,998
+Kia Seltos Petrol Z,Kia,10.8,16.91,Petrol,5,Manual,1497
+Tata Tiago CNG Z,Tata Motors,6.38,28.41,CNG,5,Manual,1199
+Mercedes-Benz EQE 500 SUV EV Max,Mercedes-Benz,129.55,36.88,Electric,5,Automatic,0
+Hyundai Grand i10 Nios X,Hyundai,5.13,19.95,Petrol,5,Manual,1197
+Honda Elevate Pro,Honda,12.85,16.32,Petrol,5,Manual,1498
+Hyundai Grand i10 CNG Max,Hyundai,8.4,24.77,CNG,5,Manual,1197
+Kia Seltos Diesel Z,Kia,13.8,21.1,Diesel,5,Manual,1493
+Tata Harrier Automatic Line,Tata Motors,22.97,13.81,Diesel,5,Automatic,1956
+Honda Elevate CVT Z,Honda,13.43,15.64,Petrol,5,Automatic,1498
+Maruti Ertiga Line,Maruti Suzuki,9.39,18.77,Petrol,7,Manual,1462
+Tata Safari Automatic Max,Tata Motors,23.45,15.07,Diesel,7,Automatic,1956
+BMW 3 Series Gran Limousine X,BMW,66.96,14.9,Petrol,5,Automatic,1998
+Honda City Z,Honda,10.82,18.6,Petrol,5,Manual,1498
+Mahindra Scorpio-N Petrol Line,Mahindra,13.4,11.41,Petrol,7,Manual,1997
+Tesla Model 3 Standard X,Tesla,39.99,30.82,Electric,5,Automatic,0
+Tata Safari Automatic Pro,Tata Motors,23.51,14.61,Diesel,7,Automatic,1956
+Hyundai Grand i10 Nios Line,Hyundai,6.11,21.9,Petrol,5,Manual,1197
+Mahindra Bolero Neo Max,Mahindra,9.09,16.58,Diesel,7,Manual,1493
+Maruti Grand Vitara Hybrid Pro,Maruti Suzuki,19.38,28.67,Petrol,5,Automatic,1490
+Tesla Model Y Long Range Pro,Tesla,56.95,36.09,Electric,5,Automatic,0
+Kia Seltos Diesel Plus,Kia,11.49,21.18,Diesel,5,Manual,1493
+Mahindra Thar RWD Z,Mahindra,9.95,14.39,Diesel,4,Manual,1497
+Maruti Brezza AT Line,Maruti Suzuki,11.67,18.0,Petrol,5,Automatic,1462
+Maruti Swift AMT Pro,Maruti Suzuki,7.55,27.66,Petrol,5,Automatic,1197
+Kia Seltos Turbo DCT Plus,Kia,19.8,16.19,Petrol,5,Automatic,1482
+Honda Amaze Max,Honda,7.2,19.99,Petrol,5,Manual,1199
+Mercedes-Benz EQE 500 SUV EV X,Mercedes-Benz,153.69,34.7,Electric,5,Automatic,0
+Toyota Camry Hybrid Line,Toyota,46.89,24.69,Petrol,5,Automatic,2487
+Kia Carens Diesel AT Pro,Kia,16.85,19.5,Diesel,7,Automatic,1493
+BMW X1 sDrive18d Z,BMW,58.43,22.4,Diesel,5,Automatic,1995
+Maruti Swift Plus,Maruti Suzuki,6.3,24.98,Petrol,5,Manual,1197
+Hyundai Tucson Pro,Hyundai,25.83,18.96,Diesel,5,Automatic,1997
+Toyota Fortuner Diesel Z,Toyota,30.85,12.25,Diesel,7,Manual,2755
+Tata Safari Pro,Tata Motors,17.43,16.23,Diesel,7,Manual,1956
+MG ZS EV Line,MG Motors,19.67,30.77,Electric,5,Automatic,0
+Tesla Model Y Long Range Line,Tesla,58.37,36.0,Electric,5,Automatic,0
+Maruti Alto K10 CNG Line,Maruti Suzuki,5.45,37.13,CNG,5,Manual,998
+Tesla Model X Dual Motor Max,Tesla,106.91,35.82,Electric,7,Automatic,0
+Honda Amaze CVT Max,Honda,7.5,18.0,Petrol,5,Automatic,1199
+BYD Atto 3 EV Plus,BYD,32.47,31.6,Electric,5,Automatic,0
+Maruti Celerio Line,Maruti Suzuki,5.51,26.44,Petrol,5,Manual,998
+Honda Amaze CVT Z,Honda,8.5,17.34,Petrol,5,Automatic,1199
+Tata Altroz Diesel Pro,Tata Motors,8.63,21.8,Diesel,5,Manual,1497
+Maruti Brezza AT X,Maruti Suzuki,12.45,19.31,Petrol,5,Automatic,1462
+Skoda Slavia 1.5 TSI DSG Z,Skoda,15.87,17.93,Petrol,5,Automatic,1498
+Tata Harrier Max,Tata Motors,15.56,16.12,Diesel,5,Manual,1956
+Maruti Ertiga Max,Maruti Suzuki,9.43,19.42,Petrol,7,Manual,1462
+Tata Tigor Z,Tata Motors,6.1,17.51,Petrol,5,Manual,1199
+Toyota Fortuner Diesel AT Max,Toyota,39.61,10.66,Diesel,7,Automatic,2755
+BMW X1 sDrive18d Line,BMW,58.21,22.36,Diesel,5,Automatic,1995
+Honda Amaze Plus,Honda,8.13,18.33,Petrol,5,Manual,1199
+Hyundai i20 N Line Pro,Hyundai,8.93,19.15,Petrol,5,Automatic,998
+Mercedes-Benz E-Class E200 Plus,Mercedes-Benz,85.78,15.54,Petrol,5,Automatic,1991
+Tata Punch Pro,Tata Motors,6.12,18.96,Petrol,5,Manual,1199
+Maruti Ertiga Pro,Maruti Suzuki,8.06,22.36,Petrol,7,Manual,1462
+Tata Nexon Facelift Plus,Tata Motors,8.05,18.44,Petrol,5,Manual,1199
+Mahindra Scorpio-N Diesel Z,Mahindra,16.3,12.85,Diesel,7,Manual,2184
+Kia Seltos Diesel Pro,Kia,11.97,20.36,Diesel,5,Manual,1493
+Mahindra XUV700 Diesel AX7 Plus,Mahindra,18.77,16.68,Diesel,7,Manual,2184
+Maruti Swift AMT Pro,Maruti Suzuki,7.8,28.04,Petrol,5,Automatic,1197
+Kia Seltos Petrol X,Kia,10.05,16.89,Petrol,5,Manual,1497
+Mercedes-Benz GLS 450d Z,Mercedes-Benz,119.57,11.76,Diesel,7,Automatic,2989
+Mahindra Scorpio Classic Line,Mahindra,12.08,13.44,Diesel,7,Manual,2179
+Toyota Fortuner Diesel Pro,Toyota,31.92,13.73,Diesel,7,Manual,2755
+Hyundai Verna Turbo X,Hyundai,13.29,18.93,Petrol,5,Manual,1482
+Mercedes-Benz C-Class C220d Line,Mercedes-Benz,56.17,25.04,Diesel,5,Automatic,1993
+Maruti Celerio AMT Line,Maruti Suzuki,6.65,27.48,Petrol,5,Automatic,998
+Tata Punch Pro,Tata Motors,5.54,20.52,Petrol,5,Manual,1199
+Hyundai Venue Turbo DCT Plus,Hyundai,11.31,18.35,Petrol,5,Automatic,998
+Mahindra XUV700 Diesel AT Pro,Mahindra,24.16,14.0,Diesel,7,Automatic,2184
+Maruti Baleno X,Maruti Suzuki,6.61,20.9,Petrol,5,Manual,1197
+Hyundai Verna Turbo Line,Hyundai,15.59,18.88,Petrol,5,Manual,1482
+Tata Harrier Pro,Tata Motors,13.97,15.75,Diesel,5,Manual,1956
+Mahindra Thar 4WD Diesel Plus,Mahindra,13.48,13.73,Diesel,4,Manual,2184
+Tata Tiago Pro,Tata Motors,4.87,19.41,Petrol,5,Manual,1199
+Volkswagen Virtus 1.5 GT DSG Z,Volkswagen,14.58,16.96,Petrol,5,Automatic,1498
+MG ZS EV Plus,MG Motors,17.72,32.81,Electric,5,Automatic,0
+Hyundai Tucson X,Hyundai,26.21,19.38,Diesel,5,Automatic,1997
+Volkswagen Taigun 1.5 GT DCT Line,Volkswagen,14.72,19.65,Petrol,5,Automatic,1498
+Tesla Model 3 Standard Pro,Tesla,39.88,35.17,Electric,5,Automatic,0
+Maruti Alto K10 Plus,Maruti Suzuki,3.94,22.8,Petrol,5,Manual,998
+Maruti Celerio AMT Z,Maruti Suzuki,5.82,26.13,Petrol,5,Automatic,998
+MG Hector Diesel Plus,MG Motors,17.54,16.3,Diesel,5,Manual,1956
+Hyundai Venue Max,Hyundai,7.95,18.19,Petrol,5,Manual,1197
+Maruti Ertiga Z,Maruti Suzuki,9.19,19.09,Petrol,7,Manual,1462
+Kia Seltos Turbo DCT X,Kia,15.77,19.03,Petrol,5,Automatic,1482
+Tata Punch EV Line,Tata Motors,11.98,27.87,Electric,5,Automatic,0
+Mercedes-Benz E-Class E200 X,Mercedes-Benz,78.97,14.17,Petrol,5,Automatic,1991
+Mahindra Scorpio Classic Pro,Mahindra,11.88,14.51,Diesel,7,Manual,2179
+Skoda Kushaq 1.0 TSI Plus,Skoda,13.22,18.21,Petrol,5,Manual,999
+Tata Curvv EV Max,Tata Motors,19.7,33.53,Electric,5,Automatic,0
+Skoda Kushaq 1.0 TSI Z,Skoda,10.32,16.42,Petrol,5,Manual,999
+Tesla Model Y Long Range Z,Tesla,51.32,36.03,Electric,5,Automatic,0
+Hyundai Creta Petrol Plus,Hyundai,12.01,16.58,Petrol,5,Manual,1497
+Hyundai Ioniq 5 EV Max,Hyundai,49.48,28.7,Electric,5,Automatic,0
+Maruti Brezza Plus,Maruti Suzuki,7.55,18.73,Petrol,5,Manual,1462
+Mahindra XUV700 Diesel AX7 Pro,Mahindra,18.06,16.91,Diesel,7,Manual,2184
+Kia Sonet Turbo DCT X,Kia,11.52,20.59,Petrol,5,Automatic,998
+Hyundai Venue Turbo DCT Z,Hyundai,11.8,19.43,Petrol,5,Automatic,998
+Mahindra Scorpio-N AT Pro,Mahindra,17.59,13.92,Diesel,7,Automatic,2184
+Tata Nexon Facelift X,Tata Motors,7.83,17.62,Petrol,5,Manual,1199
+Mahindra Thar 4WD Diesel Pro,Mahindra,14.68,11.93,Diesel,4,Manual,2184
+Tesla Model X Dual Motor Max,Tesla,128.91,33.38,Electric,7,Automatic,0
+Hyundai Venue Turbo DCT Z,Hyundai,10.21,17.83,Petrol,5,Automatic,998
+Hyundai Venue Turbo DCT Plus,Hyundai,10.98,17.42,Petrol,5,Automatic,998
+BMW 3 Series Gran Limousine Plus,BMW,64.48,16.08,Petrol,5,Automatic,1998
+Tata Altroz Diesel X,Tata Motors,9.84,23.62,Diesel,5,Manual,1497
+Toyota Camry Hybrid Line,Toyota,46.33,20.8,Petrol,5,Automatic,2487
+Hyundai Creta Diesel Max,Hyundai,12.57,20.58,Diesel,5,Manual,1493
+Toyota Urban Cruiser Taisor X,Toyota,6.83,22.29,Petrol,5,Manual,1197
+Mercedes-Benz GLE 300d Line,Mercedes-Benz,95.13,12.81,Diesel,5,Automatic,1993
+Kia Carens Diesel AT Pro,Kia,16.71,19.69,Diesel,7,Automatic,1493
+Mercedes-Benz GLS 450d Max,Mercedes-Benz,126.42,11.49,Diesel,7,Automatic,2989
+Mercedes-Benz A-Class Limousine Pro,Mercedes-Benz,42.86,17.43,Petrol,5,Automatic,1332
+Hyundai Venue Z,Hyundai,7.65,17.82,Petrol,5,Manual,1197
+Mercedes-Benz A-Class Limousine Max,Mercedes-Benz,39.42,18.64,Petrol,5,Automatic,1332
+Audi Q3 40 TFSI Line,Audi,41.46,14.48,Petrol,5,Automatic,1984
+Maruti S-Presso Z,Maruti Suzuki,3.89,22.47,Petrol,5,Manual,998
+MG Hector Diesel Plus,MG Motors,17.33,15.7,Diesel,5,Manual,1956
+Mahindra Thar 4WD Diesel Line,Mahindra,13.16,12.39,Diesel,4,Manual,2184
+Tata Safari Automatic X,Tata Motors,23.11,15.6,Diesel,7,Automatic,1956
+Honda Elevate CVT Plus,Honda,13.58,17.93,Petrol,5,Automatic,1498
+Audi A6 45 TFSI Plus,Audi,67.65,14.56,Petrol,5,Automatic,1984
+Skoda Kushaq 1.0 TSI X,Skoda,12.92,19.13,Petrol,5,Manual,999
+BMW X5 xDrive30d Max,BMW,98.45,12.88,Diesel,5,Automatic,2993
+Mahindra Thar 4WD Diesel Plus,Mahindra,13.01,13.54,Diesel,4,Manual,2184
+Tata Curvv EV Line,Tata Motors,17.68,35.22,Electric,5,Automatic,0
+Maruti Baleno Z,Maruti Suzuki,6.83,23.23,Petrol,5,Manual,1197
+Tata Tiago EV Plus,Tata Motors,8.58,29.01,Electric,5,Automatic,0
+Mercedes-Benz EQE 500 SUV EV Line,Mercedes-Benz,136.15,35.32,Electric,5,Automatic,0
+Tesla Model 3 Standard Pro,Tesla,39.97,33.62,Electric,5,Automatic,0
+BMW X5 xDrive30d Line,BMW,92.11,11.18,Diesel,5,Automatic,2993
+Volkswagen Taigun 1.5 GT DCT Z,Volkswagen,16.1,19.48,Petrol,5,Automatic,1498
+BMW X5 xDrive30d Line,BMW,102.81,12.89,Diesel,5,Automatic,2993
+Toyota Fortuner Diesel X,Toyota,36.69,11.32,Diesel,7,Manual,2755
+BMW X5 xDrive30d Z,BMW,94.25,12.78,Diesel,5,Automatic,2993
+Maruti Alto K10 CNG Max,Maruti Suzuki,6.83,31.34,CNG,5,Manual,998
+Mercedes-Benz EQE 500 SUV EV Pro,Mercedes-Benz,143.41,33.36,Electric,5,Automatic,0
+Honda Amaze CVT X,Honda,8.09,19.19,Petrol,5,Automatic,1199
+Kia Sonet Diesel Max,Kia,8.62,22.46,Diesel,5,Manual,1493
+Mercedes-Benz GLS 450d Line,Mercedes-Benz,122.73,12.23,Diesel,7,Automatic,2989
+Mercedes-Benz GLA 200 Z,Mercedes-Benz,47.81,18.56,Petrol,5,Automatic,1332
+Mercedes-Benz EQE 500 SUV EV Pro,Mercedes-Benz,124.85,34.55,Electric,5,Automatic,0
+Honda Amaze X,Honda,6.49,16.76,Petrol,5,Manual,1199
+Mahindra XUV300 Diesel Max,Mahindra,9.26,19.15,Diesel,5,Manual,1497
+Mercedes-Benz C-Class C220d Max,Mercedes-Benz,56.83,23.54,Diesel,5,Automatic,1993
+Tata Tiago CNG Pro,Tata Motors,7.33,29.04,CNG,5,Manual,1199
+Hyundai i20 N Line Line,Hyundai,8.73,20.12,Petrol,5,Automatic,998
+Mahindra XUV400 EV Pro,Mahindra,15.6,29.7,Electric,5,Automatic,0
+Audi Q3 40 TFSI Max,Audi,42.62,15.33,Petrol,5,Automatic,1984
+Volkswagen Virtus 1.0 TSI Plus,Volkswagen,13.14,19.56,Petrol,5,Manual,999
+Skoda Kushaq 1.5 TSI DSG X,Skoda,15.37,19.1,Petrol,5,Automatic,1498
+Mercedes-Benz E-Class E200 Pro,Mercedes-Benz,73.72,13.82,Petrol,5,Automatic,1991
+Mahindra XUV700 Petrol AX5 Max,Mahindra,20.18,13.68,Petrol,5,Manual,1997
+Kia EV6 Line,Kia,67.63,32.77,Electric,5,Automatic,0
+Maruti S-Presso Max,Maruti Suzuki,4.67,23.71,Petrol,5,Manual,998
+Kia Seltos Turbo DCT Line,Kia,16.97,17.33,Petrol,5,Automatic,1482
+Skoda Kushaq 1.0 TSI Pro,Skoda,10.72,18.35,Petrol,5,Manual,999
+Tata Curvv EV Line,Tata Motors,18.37,35.85,Electric,5,Automatic,0
+Mercedes-Benz GLE 300d Z,Mercedes-Benz,109.1,12.89,Diesel,5,Automatic,1993
+Tata Tiago EV Z,Tata Motors,8.13,30.45,Electric,5,Automatic,0
+Toyota Fortuner Diesel AT Z,Toyota,39.03,12.24,Diesel,7,Automatic,2755
+MG ZS EV Plus,MG Motors,17.73,27.41,Electric,5,Automatic,0
+Mercedes-Benz GLS 450d Pro,Mercedes-Benz,148.08,11.04,Diesel,7,Automatic,2989
+Maruti Dzire AMT Max,Maruti Suzuki,7.16,23.55,Petrol,5,Automatic,1197
+Tata Punch EV Max,Tata Motors,10.41,26.95,Electric,5,Automatic,0
+Volkswagen Virtus 1.5 GT DSG Plus,Volkswagen,15.83,18.91,Petrol,5,Automatic,1498
+Maruti Wagon R CNG Line,Maruti Suzuki,6.91,33.0,CNG,5,Manual,998
+Kia Seltos Turbo DCT Plus,Kia,16.89,18.33,Petrol,5,Automatic,1482
+BMW X5 xDrive40i Line,BMW,84.91,10.91,Petrol,5,Automatic,2998
+Mahindra Thar RWD Line,Mahindra,11.62,16.33,Diesel,4,Manual,1497
+BMW X5 xDrive30d X,BMW,92.25,13.14,Diesel,5,Automatic,2993
+Maruti Alto K10 CNG Max,Maruti Suzuki,6.11,37.02,CNG,5,Manual,998
+Mercedes-Benz GLS 450d Z,Mercedes-Benz,122.79,12.07,Diesel,7,Automatic,2989
+Tata Harrier Line,Tata Motors,15.4,15.56,Diesel,5,Manual,1956
+Tata Tiago X,Tata Motors,5.71,21.04,Petrol,5,Manual,1199
+Maruti Swift AMT Max,Maruti Suzuki,6.49,23.3,Petrol,5,Automatic,1197
+Volkswagen Virtus 1.5 GT DSG Z,Volkswagen,15.4,16.82,Petrol,5,Automatic,1498
+Tata Harrier Line,Tata Motors,13.79,16.21,Diesel,5,Manual,1956
+Tesla Model 3 Standard Line,Tesla,39.11,31.93,Electric,5,Automatic,0
+Honda Amaze CVT Plus,Honda,10.07,19.29,Petrol,5,Automatic,1199
+Audi e-tron 55 EV Plus,Audi,117.39,31.1,Electric,5,Automatic,0
+Audi Q3 40 TFSI Max,Audi,47.87,14.77,Petrol,5,Automatic,1984
+Toyota Urban Cruiser Taisor Z,Toyota,7.17,20.53,Petrol,5,Manual,1197
+BMW X5 xDrive30d Line,BMW,103.86,13.19,Diesel,5,Automatic,2993
+MG ZS EV Max,MG Motors,20.46,29.56,Electric,5,Automatic,0
+Toyota Camry Hybrid Max,Toyota,47.49,22.48,Petrol,5,Automatic,2487
+BMW X5 xDrive40i Pro,BMW,95.18,11.19,Petrol,5,Automatic,2998
+Volkswagen Virtus 1.5 GT DSG Plus,Volkswagen,15.76,19.7,Petrol,5,Automatic,1498
+Kia EV6 Z,Kia,58.19,33.76,Electric,5,Automatic,0
+Mercedes-Benz GLE 300d Line,Mercedes-Benz,109.1,13.22,Diesel,5,Automatic,1993
+BMW X1 sDrive20i Max,BMW,54.41,14.98,Petrol,5,Automatic,1499
+Toyota Fortuner Diesel AT Line,Toyota,43.54,12.23,Diesel,7,Automatic,2755
+Honda Amaze CVT Pro,Honda,7.79,18.87,Petrol,5,Automatic,1199
+Mahindra XUV300 Diesel Z,Mahindra,10.59,19.09,Diesel,5,Manual,1497
+Hyundai Verna Turbo Max,Hyundai,16.79,21.8,Petrol,5,Manual,1482
+Hyundai Grand i10 Nios Line,Hyundai,5.35,19.26,Petrol,5,Manual,1197
+Tata Harrier Plus,Tata Motors,13.48,16.57,Diesel,5,Manual,1956
+Mercedes-Benz GLE 300d Pro,Mercedes-Benz,103.64,15.24,Diesel,5,Automatic,1993
+Mercedes-Benz GLE 300d Z,Mercedes-Benz,98.81,13.78,Diesel,5,Automatic,1993
+Hyundai Verna Turbo Pro,Hyundai,16.36,20.55,Petrol,5,Manual,1482
+Audi A4 40 TFSI Plus,Audi,40.44,17.04,Petrol,5,Automatic,1984
+Audi Q7 55 TFSI Z,Audi,96.51,10.69,Petrol,7,Automatic,2995
+Hyundai Grand i10 CNG Pro,Hyundai,6.99,29.94,CNG,5,Manual,1197
+Tata Tiago CNG X,Tata Motors,5.89,26.01,CNG,5,Manual,1199
+BMW 3 Series GL Diesel Plus,BMW,56.2,21.16,Diesel,5,Automatic,1995
+Tata Safari Automatic Plus,Tata Motors,22.64,13.72,Diesel,7,Automatic,1956
+Maruti Swift Plus,Maruti Suzuki,6.81,24.27,Petrol,5,Manual,1197
+Hyundai Venue X,Hyundai,7.99,15.86,Petrol,5,Manual,1197
+Hyundai Venue X,Hyundai,7.6,18.03,Petrol,5,Manual,1197
+Hyundai Grand i10 Nios Line,Hyundai,6.59,20.16,Petrol,5,Manual,1197
+Hyundai Creta Diesel Max,Hyundai,12.05,23.39,Diesel,5,Manual,1493
+Skoda Kushaq 1.5 TSI DSG Pro,Skoda,19.04,17.99,Petrol,5,Automatic,1498
+Hyundai Venue Turbo DCT Line,Hyundai,11.64,20.01,Petrol,5,Automatic,998
+BMW X1 sDrive18d Pro,BMW,50.56,19.09,Diesel,5,Automatic,1995
+Mahindra Thar 4WD Petrol Max,Mahindra,14.14,13.74,Petrol,4,Manual,1997
+Tata Harrier X,Tata Motors,14.57,17.73,Diesel,5,Manual,1956
+Maruti Celerio Max,Maruti Suzuki,5.77,26.61,Petrol,5,Manual,998
+Hyundai Tucson X,Hyundai,29.04,19.24,Diesel,5,Automatic,1997
+Tata Harrier Automatic Max,Tata Motors,18.38,15.36,Diesel,5,Automatic,1956
+Maruti XL6 Line,Maruti Suzuki,13.0,21.5,Petrol,6,Manual,1462
+Tata Nexon Diesel Z,Tata Motors,10.71,21.52,Diesel,5,Manual,1497
+Audi Q5 45 TFSI Line,Audi,66.03,12.15,Petrol,5,Automatic,1984
+Maruti Wagon R Pro,Maruti Suzuki,6.22,26.4,Petrol,5,Manual,1197
+Volkswagen Virtus 1.5 GT DSG Line,Volkswagen,16.79,19.03,Petrol,5,Automatic,1498
+Mercedes-Benz E-Class E200 Plus,Mercedes-Benz,67.31,15.89,Petrol,5,Automatic,1991
+Tata Tiago Pro,Tata Motors,6.4,19.94,Petrol,5,Manual,1199
+Hyundai i20 N Line Max,Hyundai,10.37,18.1,Petrol,5,Automatic,998
+Kia EV6 Pro,Kia,57.93,30.06,Electric,5,Automatic,0
+Tata Nexon Diesel Z,Tata Motors,9.9,24.09,Diesel,5,Manual,1497
+Skoda Slavia 1.5 TSI DSG X,Skoda,18.1,18.47,Petrol,5,Automatic,1498
+Volkswagen Virtus 1.5 GT DSG Max,Volkswagen,16.77,17.49,Petrol,5,Automatic,1498
+Audi Q3 40 TFSI Pro,Audi,44.24,14.9,Petrol,5,Automatic,1984
+Mahindra XUV300 Petrol Max,Mahindra,8.93,15.52,Petrol,5,Manual,1197
+Mercedes-Benz GLE 300d Max,Mercedes-Benz,105.02,14.23,Diesel,5,Automatic,1993
+Maruti Grand Vitara Hybrid Max,Maruti Suzuki,16.5,26.68,Petrol,5,Automatic,1490
+Hyundai Aura X,Hyundai,6.12,21.72,Petrol,5,Manual,1197
+Honda Amaze CVT Line,Honda,8.12,17.61,Petrol,5,Automatic,1199
+Honda Elevate Max,Honda,12.43,15.17,Petrol,5,Manual,1498
+Mahindra XUV300 Petrol Plus,Mahindra,6.87,15.34,Petrol,5,Manual,1197
+MG ZS EV Z,MG Motors,19.38,27.43,Electric,5,Automatic,0
+Hyundai i20 N Line X,Hyundai,10.78,19.18,Petrol,5,Automatic,998
+BMW i4 eDrive40 EV Pro,BMW,80.69,34.86,Electric,5,Automatic,0
+Hyundai Alcazar Diesel X,Hyundai,16.94,20.81,Diesel,7,Manual,1493
+Kia Sonet Turbo DCT Pro,Kia,13.15,18.4,Petrol,5,Automatic,998
+Mercedes-Benz GLC 300 X,Mercedes-Benz,65.75,13.24,Petrol,5,Automatic,1999
+Mercedes-Benz EQE 500 SUV EV Pro,Mercedes-Benz,153.45,36.98,Electric,5,Automatic,0
+Maruti XL6 Max,Maruti Suzuki,10.31,22.14,Petrol,6,Manual,1462
+MG ZS EV Line,MG Motors,18.4,27.24,Electric,5,Automatic,0
+Tata Altroz Petrol Pro,Tata Motors,7.19,19.25,Petrol,5,Manual,1199
+Tata Tiago EV Pro,Tata Motors,7.15,25.79,Electric,5,Automatic,0
+Hyundai Exter Plus,Hyundai,5.63,18.4,Petrol,5,Manual,1197
+Volkswagen Virtus 1.5 GT DSG Pro,Volkswagen,17.27,20.41,Petrol,5,Automatic,1498
+Tata Safari Plus,Tata Motors,17.26,15.13,Diesel,7,Manual,1956
+Maruti Brezza Z,Maruti Suzuki,8.69,17.38,Petrol,5,Manual,1462
+Mahindra Thar RWD Max,Mahindra,11.9,15.56,Diesel,4,Manual,1497
+Honda City Hybrid e:HEV Plus,Honda,19.13,28.2,Petrol,5,Automatic,1498
+Hyundai Ioniq 5 EV Line,Hyundai,42.62,31.37,Electric,5,Automatic,0
+Maruti Jimny Max,Maruti Suzuki,12.15,15.28,Petrol,4,Manual,1462
+Mahindra Scorpio-N Diesel Plus,Mahindra,12.89,13.51,Diesel,7,Manual,2184
+Maruti Swift Max,Maruti Suzuki,7.29,25.84,Petrol,5,Manual,1197
+Audi A4 40 TFSI Max,Audi,46.47,15.97,Petrol,5,Automatic,1984
+Kia Carens Diesel AT Max,Kia,16.06,17.85,Diesel,7,Automatic,1493
+Volkswagen Virtus 1.0 TSI Z,Volkswagen,11.35,17.59,Petrol,5,Manual,999
+Mahindra Scorpio-N AT Line,Mahindra,19.27,12.36,Diesel,7,Automatic,2184
+Hyundai Alcazar Diesel X,Hyundai,15.93,19.98,Diesel,7,Manual,1493
+Kia Sonet Turbo DCT X,Kia,12.3,17.79,Petrol,5,Automatic,998
+Tata Safari Automatic Plus,Tata Motors,20.73,14.7,Diesel,7,Automatic,1956
+Mahindra Scorpio Classic Max,Mahindra,14.04,14.95,Diesel,7,Manual,2179
+Mercedes-Benz E-Class E220d Plus,Mercedes-Benz,66.08,17.07,Diesel,5,Automatic,1993
+Honda Elevate Z,Honda,12.87,14.39,Petrol,5,Manual,1498
+Honda Elevate Z,Honda,13.08,14.29,Petrol,5,Manual,1498
+Kia Sonet Turbo DCT Pro,Kia,12.22,17.68,Petrol,5,Automatic,998
+Tata Harrier Automatic Z,Tata Motors,21.17,15.0,Diesel,5,Automatic,1956
+Mahindra XUV700 Petrol AX5 Pro,Mahindra,19.93,13.54,Petrol,5,Manual,1997
+Maruti Ertiga Line,Maruti Suzuki,9.23,18.59,Petrol,7,Manual,1462
+Honda Amaze CVT Plus,Honda,7.86,19.9,Petrol,5,Automatic,1199
+Volkswagen Taigun 1.5 GT DCT Line,Volkswagen,17.17,16.48,Petrol,5,Automatic,1498
+Maruti Swift Z,Maruti Suzuki,6.7,25.96,Petrol,5,Manual,1197
+Honda Amaze Line,Honda,7.0,19.38,Petrol,5,Manual,1199
+Mahindra Thar RWD Line,Mahindra,12.05,16.33,Diesel,4,Manual,1497
+BMW 3 Series Gran Limousine Line,BMW,68.5,16.05,Petrol,5,Automatic,1998
+Maruti Celerio AMT Z,Maruti Suzuki,7.19,28.29,Petrol,5,Automatic,998
+MG Hector Diesel Max,MG Motors,18.01,15.0,Diesel,5,Manual,1956
+Maruti Wagon R Line,Maruti Suzuki,4.9,25.88,Petrol,5,Manual,1197
+BMW 3 Series GL Diesel Pro,BMW,71.59,17.96,Diesel,5,Automatic,1995
+Audi Q3 40 TFSI Z,Audi,48.25,16.11,Petrol,5,Automatic,1984
+Skoda Slavia 1.0 TSI Line,Skoda,10.23,19.66,Petrol,5,Manual,999
+Tata Nexon EV Max,Tata Motors,16.32,32.44,Electric,5,Automatic,0
+Volkswagen Virtus 1.5 GT DSG Z,Volkswagen,17.99,18.42,Petrol,5,Automatic,1498
+Honda City X,Honda,11.78,18.31,Petrol,5,Manual,1498
+Tata Curvv EV Max,Tata Motors,17.97,33.17,Electric,5,Automatic,0
+Maruti Brezza Pro,Maruti Suzuki,8.09,18.19,Petrol,5,Manual,1462
+BMW i4 eDrive40 EV Line,BMW,62.82,32.07,Electric,5,Automatic,0
+Mercedes-Benz E-Class E200 X,Mercedes-Benz,72.29,13.68,Petrol,5,Automatic,1991
+BYD Atto 3 EV X,BYD,37.08,30.48,Electric,5,Automatic,0
+Audi e-tron 55 EV Z,Audi,105.57,27.96,Electric,5,Automatic,0
+Mahindra Scorpio Classic X,Mahindra,12.91,15.47,Diesel,7,Manual,2179
+Maruti Fronx Pro,Maruti Suzuki,7.28,20.57,Petrol,5,Manual,1197
+Kia Carens Diesel AT Pro,Kia,16.74,20.15,Diesel,7,Automatic,1493
+Honda Elevate Plus,Honda,13.04,14.81,Petrol,5,Manual,1498
+Kia Seltos Turbo DCT Pro,Kia,17.46,16.76,Petrol,5,Automatic,1482
+Audi Q5 45 TFSI Max,Audi,62.19,14.18,Petrol,5,Automatic,1984
+Mahindra Thar 4WD Diesel X,Mahindra,15.91,13.41,Diesel,4,Manual,2184
+Hyundai i20 Pro,Hyundai,6.94,20.29,Petrol,5,Manual,1197
+Mercedes-Benz GLC 300 Z,Mercedes-Benz,68.3,12.88,Petrol,5,Automatic,1999
+Mercedes-Benz GLS 450d Plus,Mercedes-Benz,135.05,12.0,Diesel,7,Automatic,2989
+Honda Elevate X,Honda,10.33,14.48,Petrol,5,Manual,1498
+Mercedes-Benz C-Class C200 Plus,Mercedes-Benz,55.85,18.58,Petrol,5,Automatic,1496
+Maruti Alto K10 X,Maruti Suzuki,3.99,26.71,Petrol,5,Manual,998
+Hyundai Verna DCT Z,Hyundai,15.69,21.22,Petrol,5,Automatic,1482
+Skoda Kushaq 1.0 TSI Plus,Skoda,13.37,16.81,Petrol,5,Manual,999
+Mercedes-Benz GLA 200 Line,Mercedes-Benz,49.61,18.03,Petrol,5,Automatic,1332
+Audi A6 45 TFSI Max,Audi,65.75,12.9,Petrol,5,Automatic,1984
+Tata Harrier Max,Tata Motors,16.1,15.22,Diesel,5,Manual,1956
+Kia Seltos Diesel X,Kia,10.25,19.7,Diesel,5,Manual,1493
+Audi Q5 45 TFSI Line,Audi,68.38,13.3,Petrol,5,Automatic,1984
+Mercedes-Benz GLS 450d Plus,Mercedes-Benz,123.77,12.35,Diesel,7,Automatic,2989
+Maruti Ertiga CNG Line,Maruti Suzuki,12.27,27.3,CNG,7,Manual,1462
+Mahindra XUV400 EV Line,Mahindra,13.86,32.71,Electric,5,Automatic,0
+Hyundai Grand i10 CNG Plus,Hyundai,7.48,26.89,CNG,5,Manual,1197
+Kia EV6 Z,Kia,53.37,31.5,Electric,5,Automatic,0
+Toyota Urban Cruiser Hyryder Line,Toyota,12.8,20.57,Petrol,5,Manual,1462
+Kia Sonet Turbo DCT Line,Kia,12.0,21.07,Petrol,5,Automatic,998
+Hyundai Creta Petrol Z,Hyundai,11.31,15.8,Petrol,5,Manual,1497
+Mahindra XUV400 EV Line,Mahindra,13.48,33.49,Electric,5,Automatic,0
+Tata Nexon EV Line,Tata Motors,15.58,30.98,Electric,5,Automatic,0
+Skoda Slavia 1.0 TSI Line,Skoda,10.53,19.23,Petrol,5,Manual,999
+Kia Sonet Petrol Max,Kia,8.94,19.65,Petrol,5,Manual,1197
+Tata Tiago EV Pro,Tata Motors,7.28,27.93,Electric,5,Automatic,0
+Volkswagen Taigun 1.0 TSI Z,Volkswagen,10.54,19.13,Petrol,5,Manual,999
+Hyundai Verna Turbo Line,Hyundai,12.78,21.6,Petrol,5,Manual,1482
+Volkswagen Taigun 1.5 GT DCT Max,Volkswagen,16.65,17.82,Petrol,5,Automatic,1498
+Hyundai i20 Z,Hyundai,7.18,19.39,Petrol,5,Manual,1197
+Maruti Dzire X,Maruti Suzuki,5.71,22.82,Petrol,5,Manual,1197
+Mahindra XUV400 EV X,Mahindra,16.77,33.77,Electric,5,Automatic,0
+Volkswagen Taigun 1.0 TSI Line,Volkswagen,11.46,16.77,Petrol,5,Manual,999
+Hyundai Verna DCT Max,Hyundai,16.2,21.11,Petrol,5,Automatic,1482
+Skoda Kushaq 1.0 TSI Max,Skoda,11.68,18.35,Petrol,5,Manual,999
+Maruti Alto K10 Z,Maruti Suzuki,3.87,25.53,Petrol,5,Manual,998
+Mahindra XUV400 EV Z,Mahindra,15.77,28.9,Electric,5,Automatic,0
+Maruti Celerio Max,Maruti Suzuki,4.81,26.33,Petrol,5,Manual,998
+Maruti Ertiga CNG Z,Maruti Suzuki,9.75,28.25,CNG,7,Manual,1462
+Hyundai i20 N Line Max,Hyundai,11.07,18.34,Petrol,5,Automatic,998
+Toyota Fortuner Petrol Pro,Toyota,37.9,9.48,Petrol,7,Manual,2694
+Maruti Alto K10 CNG Max,Maruti Suzuki,5.73,37.04,CNG,5,Manual,998
+Mercedes-Benz GLE 300d X,Mercedes-Benz,90.0,13.11,Diesel,5,Automatic,1993
+Toyota Camry Hybrid Z,Toyota,48.16,24.31,Petrol,5,Automatic,2487
+Mercedes-Benz E-Class E200 Max,Mercedes-Benz,73.97,14.98,Petrol,5,Automatic,1991
+Hyundai Verna Turbo Max,Hyundai,12.73,18.99,Petrol,5,Manual,1482
+Volkswagen Taigun 1.5 GT DCT Z,Volkswagen,15.06,19.44,Petrol,5,Automatic,1498
+Maruti Baleno Pro,Maruti Suzuki,7.09,22.11,Petrol,5,Manual,1197
+Mahindra XUV300 Petrol Pro,Mahindra,8.37,17.05,Petrol,5,Manual,1197
+Mahindra Scorpio-N Diesel Z,Mahindra,12.23,13.61,Diesel,7,Manual,2184
+Toyota Glanza Plus,Toyota,6.24,22.77,Petrol,5,Manual,1197
+Tata Altroz Petrol Z,Tata Motors,6.07,18.03,Petrol,5,Manual,1199
+Tata Altroz Diesel Z,Tata Motors,9.25,23.13,Diesel,5,Manual,1497
+Hyundai Creta Petrol Pro,Hyundai,9.42,19.03,Petrol,5,Manual,1497
+Maruti Baleno Pro,Maruti Suzuki,5.87,21.27,Petrol,5,Manual,1197
+Skoda Slavia 1.5 TSI DSG Z,Skoda,18.13,19.32,Petrol,5,Automatic,1498
+Tata Nexon Diesel Z,Tata Motors,10.03,22.42,Diesel,5,Manual,1497
+Mercedes-Benz EQE 500 SUV EV Z,Mercedes-Benz,145.37,36.39,Electric,5,Automatic,0
+Hyundai Tucson Pro,Hyundai,26.74,16.67,Diesel,5,Automatic,1997
+Toyota Fortuner Diesel Z,Toyota,31.61,13.67,Diesel,7,Manual,2755
+Kia Seltos Turbo DCT Z,Kia,16.89,17.73,Petrol,5,Automatic,1482
+Maruti Swift Line,Maruti Suzuki,6.92,24.39,Petrol,5,Manual,1197
+Kia EV6 Plus,Kia,67.45,29.73,Electric,5,Automatic,0
+Kia Seltos Turbo DCT X,Kia,20.11,16.72,Petrol,5,Automatic,1482
+Audi A4 40 TFSI Plus,Audi,43.94,17.47,Petrol,5,Automatic,1984
+MG Comet EV Line,MG Motors,7.34,22.25,Electric,4,Automatic,0
+Honda Elevate X,Honda,10.56,16.32,Petrol,5,Manual,1498
+BMW i4 eDrive40 EV Z,BMW,68.0,34.52,Electric,5,Automatic,0
+Toyota Urban Cruiser Taisor Line,Toyota,8.66,20.42,Petrol,5,Manual,1197
+Audi e-tron 55 EV Z,Audi,105.88,30.7,Electric,5,Automatic,0
+Hyundai Grand i10 Nios Pro,Hyundai,5.18,21.56,Petrol,5,Manual,1197
+Volkswagen Taigun 1.5 GT DCT Max,Volkswagen,15.32,16.89,Petrol,5,Automatic,1498
+Volkswagen Virtus 1.5 GT DSG Line,Volkswagen,13.89,17.36,Petrol,5,Automatic,1498
+Hyundai Ioniq 5 EV Pro,Hyundai,41.65,28.13,Electric,5,Automatic,0
+Skoda Kushaq 1.0 TSI Line,Skoda,12.19,18.73,Petrol,5,Manual,999
+Tata Tiago Line,Tata Motors,5.52,20.67,Petrol,5,Manual,1199
+Maruti Baleno Pro,Maruti Suzuki,7.44,22.24,Petrol,5,Manual,1197
+BMW X5 xDrive30d X,BMW,107.88,12.83,Diesel,5,Automatic,2993
+Maruti Brezza Plus,Maruti Suzuki,7.94,18.44,Petrol,5,Manual,1462
+Hyundai i20 Z,Hyundai,6.53,20.65,Petrol,5,Manual,1197
+Volkswagen Virtus 1.5 GT DSG Line,Volkswagen,15.61,19.97,Petrol,5,Automatic,1498
+MG Comet EV Z,MG Motors,7.18,21.65,Electric,4,Automatic,0
+Hyundai Creta Diesel Max,Hyundai,11.58,20.11,Diesel,5,Manual,1493
+Maruti XL6 Pro,Maruti Suzuki,12.04,20.0,Petrol,6,Manual,1462
+BMW X5 xDrive30d Z,BMW,95.82,10.94,Diesel,5,Automatic,2993
+Mahindra Thar 4WD Diesel Pro,Mahindra,15.08,13.08,Diesel,4,Manual,2184
+Toyota Camry Hybrid Z,Toyota,45.29,24.68,Petrol,5,Automatic,2487
+BMW X5 xDrive40i Plus,BMW,90.08,10.89,Petrol,5,Automatic,2998
+Kia Sonet Turbo DCT Plus,Kia,13.6,17.75,Petrol,5,Automatic,998
+Maruti Fronx Plus,Maruti Suzuki,8.1,21.58,Petrol,5,Manual,1197
+Volkswagen Taigun 1.0 TSI Plus,Volkswagen,10.37,19.34,Petrol,5,Manual,999
+Toyota Urban Cruiser Hyryder Plus,Toyota,12.37,20.33,Petrol,5,Manual,1462
+Maruti Swift AMT Plus,Maruti Suzuki,7.47,25.79,Petrol,5,Automatic,1197
+Hyundai Venue Turbo DCT Pro,Hyundai,13.26,16.62,Petrol,5,Automatic,998
+Mercedes-Benz GLE 300d Line,Mercedes-Benz,105.34,13.02,Diesel,5,Automatic,1993
+Tata Curvv EV Z,Tata Motors,17.1,36.21,Electric,5,Automatic,0
+Toyota Hilux Plus,Toyota,26.04,13.12,Diesel,5,Manual,2755
+BMW X1 sDrive18d Pro,BMW,48.86,18.35,Diesel,5,Automatic,1995
+Audi Q5 45 TFSI Pro,Audi,65.99,14.61,Petrol,5,Automatic,1984
+Mahindra XUV400 EV Pro,Mahindra,16.11,32.07,Electric,5,Automatic,0
+Volkswagen Virtus 1.5 GT DSG Line,Volkswagen,15.01,19.97,Petrol,5,Automatic,1498
+Hyundai Aura Z,Hyundai,5.79,20.31,Petrol,5,Manual,1197
+Mercedes-Benz C-Class C220d Line,Mercedes-Benz,69.33,23.07,Diesel,5,Automatic,1993
+Honda Amaze X,Honda,8.2,18.56,Petrol,5,Manual,1199
+Honda City Hybrid e:HEV Pro,Honda,19.04,28.0,Petrol,5,Automatic,1498
+Tata Tiago EV X,Tata Motors,7.2,25.98,Electric,5,Automatic,0
+BMW 3 Series GL Diesel Max,BMW,58.23,17.77,Diesel,5,Automatic,1995
+Tata Punch EV Plus,Tata Motors,9.4,28.37,Electric,5,Automatic,0
+Mercedes-Benz C-Class C200 Plus,Mercedes-Benz,69.54,17.59,Petrol,5,Automatic,1496
+Tesla Model S Plaid Line,Tesla,97.39,34.32,Electric,5,Automatic,0
+Toyota Urban Cruiser Taisor Z,Toyota,7.92,22.25,Petrol,5,Manual,1197
+Toyota Urban Cruiser Hyryder X,Toyota,10.38,23.09,Petrol,5,Manual,1462
+Maruti Swift AMT Z,Maruti Suzuki,7.62,23.66,Petrol,5,Automatic,1197
+Toyota Glanza Line,Toyota,7.12,23.12,Petrol,5,Manual,1197
+Maruti Wagon R CNG Plus,Maruti Suzuki,7.57,33.67,CNG,5,Manual,998
+Hyundai Venue Z,Hyundai,7.24,18.79,Petrol,5,Manual,1197
+Mercedes-Benz C-Class C200 Z,Mercedes-Benz,52.78,15.81,Petrol,5,Automatic,1496
+Maruti Celerio AMT Plus,Maruti Suzuki,5.68,27.71,Petrol,5,Automatic,998
+Hyundai Creta Petrol X,Hyundai,12.32,18.58,Petrol,5,Manual,1497
+Toyota Hilux Plus,Toyota,33.81,13.07,Diesel,5,Manual,2755
+BMW 3 Series GL Diesel Z,BMW,64.33,20.33,Diesel,5,Automatic,1995
+Mahindra Scorpio-N Diesel X,Mahindra,14.68,13.99,Diesel,7,Manual,2184
+Kia Sonet Turbo DCT X,Kia,12.58,19.65,Petrol,5,Automatic,998
+Mahindra XUV700 Diesel AX7 Plus,Mahindra,17.86,16.64,Diesel,7,Manual,2184
+Tata Nexon Facelift Z,Tata Motors,9.16,17.69,Petrol,5,Manual,1199
+Tesla Model Y Long Range Line,Tesla,53.66,30.35,Electric,5,Automatic,0
+Hyundai Ioniq 5 EV Z,Hyundai,44.44,33.67,Electric,5,Automatic,0
+Mahindra XUV700 Petrol AX5 Pro,Mahindra,17.79,13.49,Petrol,5,Manual,1997
+Maruti Fronx Max,Maruti Suzuki,6.49,22.56,Petrol,5,Manual,1197
+BMW 3 Series Gran Limousine Line,BMW,54.53,14.51,Petrol,5,Automatic,1998
+Kia Carens Petrol X,Kia,11.2,18.47,Petrol,7,Manual,1497
+Kia Seltos Turbo DCT Line,Kia,16.01,17.52,Petrol,5,Automatic,1482
+Maruti Fronx X,Maruti Suzuki,7.74,22.45,Petrol,5,Manual,1197
+Tata Tiago EV X,Tata Motors,7.38,25.8,Electric,5,Automatic,0
+Mercedes-Benz GLA 200 Line,Mercedes-Benz,50.03,17.95,Petrol,5,Automatic,1332
+Mercedes-Benz GLA 200 X,Mercedes-Benz,48.47,19.14,Petrol,5,Automatic,1332
+Honda Elevate X,Honda,11.08,13.93,Petrol,5,Manual,1498
+Mahindra Thar 4WD Petrol Pro,Mahindra,15.24,14.02,Petrol,4,Manual,1997
+Mercedes-Benz GLC 300 Z,Mercedes-Benz,69.92,12.5,Petrol,5,Automatic,1999
+MG Comet EV Z,MG Motors,7.13,24.71,Electric,4,Automatic,0
+Maruti Alto K10 Max,Maruti Suzuki,3.96,25.77,Petrol,5,Manual,998
+Tesla Model 3 Standard Max,Tesla,47.21,32.43,Electric,5,Automatic,0
+Kia Carens Diesel AT Pro,Kia,18.72,19.28,Diesel,7,Automatic,1493
+BMW X5 xDrive30d Max,BMW,105.37,12.91,Diesel,5,Automatic,2993
+Honda City CVT Line,Honda,12.66,18.05,Petrol,5,Automatic,1498
+Audi Q5 45 TFSI Plus,Audi,56.01,12.94,Petrol,5,Automatic,1984
+Tesla Model X Dual Motor Plus,Tesla,111.44,35.14,Electric,7,Automatic,0
+Honda Elevate Plus,Honda,11.91,16.25,Petrol,5,Manual,1498
+Tata Altroz Diesel Pro,Tata Motors,7.62,24.88,Diesel,5,Manual,1497
+Mahindra Thar 4WD Petrol Pro,Mahindra,14.28,13.56,Petrol,4,Manual,1997
+Tata Nexon EV X,Tata Motors,14.91,30.11,Electric,5,Automatic,0
+Toyota Fortuner Petrol Plus,Toyota,31.77,10.64,Petrol,7,Manual,2694
+Audi A6 45 TFSI Line,Audi,69.42,13.04,Petrol,5,Automatic,1984
+Maruti Jimny Max,Maruti Suzuki,11.24,17.09,Petrol,4,Manual,1462
+Tata Nexon EV Line,Tata Motors,12.64,27.49,Electric,5,Automatic,0
+Tata Harrier Automatic Max,Tata Motors,21.36,14.09,Diesel,5,Automatic,1956
+Maruti Brezza AT Plus,Maruti Suzuki,11.08,19.36,Petrol,5,Automatic,1462
+Maruti Alto K10 Plus,Maruti Suzuki,4.22,23.88,Petrol,5,Manual,998
+Audi Q5 45 TFSI Plus,Audi,63.91,13.92,Petrol,5,Automatic,1984
+Honda Amaze CVT Pro,Honda,8.11,17.89,Petrol,5,Automatic,1199
+Audi A6 45 TFSI Max,Audi,70.35,13.97,Petrol,5,Automatic,1984
+Maruti S-Presso Pro,Maruti Suzuki,4.64,20.56,Petrol,5,Manual,998
+Maruti Baleno Pro,Maruti Suzuki,7.05,21.78,Petrol,5,Manual,1197
+Toyota Glanza Z,Toyota,6.34,21.13,Petrol,5,Manual,1197
+Maruti Ertiga CNG Line,Maruti Suzuki,11.07,23.88,CNG,7,Manual,1462
+MG Astor Petrol Line,MG Motors,9.56,15.72,Petrol,5,Manual,1498
+Audi Q5 45 TFSI X,Audi,57.19,13.85,Petrol,5,Automatic,1984
+Maruti Swift Pro,Maruti Suzuki,7.3,26.37,Petrol,5,Manual,1197
+Mercedes-Benz C-Class C200 Max,Mercedes-Benz,55.11,16.78,Petrol,5,Automatic,1496
+Kia Carens Diesel AT Z,Kia,18.79,17.96,Diesel,7,Automatic,1493
+Kia Seltos Turbo DCT Z,Kia,18.0,19.2,Petrol,5,Automatic,1482
+Mahindra Thar RWD Line,Mahindra,10.19,15.26,Diesel,4,Manual,1497
+Hyundai Venue Turbo DCT Pro,Hyundai,12.01,18.22,Petrol,5,Automatic,998
+Volkswagen Taigun 1.5 GT DCT X,Volkswagen,18.67,16.38,Petrol,5,Automatic,1498
+Tata Punch Pro,Tata Motors,6.56,19.45,Petrol,5,Manual,1199
+Tata Nexon Diesel Plus,Tata Motors,12.12,22.67,Diesel,5,Manual,1497
+Hyundai Tucson Pro,Hyundai,30.4,17.64,Diesel,5,Automatic,1997
+Tesla Model X Dual Motor Plus,Tesla,126.92,34.55,Electric,7,Automatic,0
+Toyota Fortuner Diesel AT Plus,Toyota,42.21,11.88,Diesel,7,Automatic,2755
+Audi A4 40 TFSI X,Audi,41.93,17.78,Petrol,5,Automatic,1984
