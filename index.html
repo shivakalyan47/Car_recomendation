@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Recommendation System</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#8E2DE2">
+    <link rel="apple-touch-icon" href="./assets/app_icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-logo">
+                <img src="./assets/app_icon.png" alt="Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Car Recommendation System</h1>
+                    <p>Advanced Machine Learning Automobile Discovery Engine</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="install-btn" class="install-button" style="display: none;">
+                    <i class="fa-solid fa-download"></i> Install App
+                </button>
+                <button id="sidebar-toggle" class="sidebar-toggle-btn">
+                    <i class="fa-solid fa-sliders"></i> Preferences
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-layout">
+            <!-- Sidebar (Preferences) -->
+            <aside id="app-sidebar" class="sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fa-solid fa-sliders"></i> User Preferences</h2>
+                    <button id="sidebar-close" class="sidebar-close-btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                
+                <form id="preferences-form" class="pref-form">
+                    <!-- Target Budget Slider -->
+                    <div class="form-group">
+                        <label for="budget-slider">
+                            <span>Target Budget (Max Price)</span>
+                            <span id="budget-value" class="value-badge">₹15.0L</span>
+                        </label>
+                        <input type="range" id="budget-slider" min="3.0" max="140.0" step="0.5" value="15.0">
+                        <div class="range-labels">
+                            <span>₹3.0L</span>
+                            <span>₹140.0L</span>
+                        </div>
+                    </div>
+
+                    <!-- Fuel Type -->
+                    <div class="form-group">
+                        <label for="fuel-type">Preferred Fuel Type</label>
+                        <select id="fuel-type">
+                            <option value="All">All Fuel Types</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="CNG">CNG</option>
+                            <option value="Electric">Electric (EV)</option>
+                        </select>
+                    </div>
+
+                    <!-- Transmission -->
+                    <div class="form-group">
+                        <label for="transmission">Transmission Type</label>
+                        <select id="transmission">
+                            <option value="All">All Transmissions</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+
+                    <!-- Seating Capacity -->
+                    <div class="form-group">
+                        <label for="seating">Seating Capacity</label>
+                        <select id="seating">
+                            <option value="All">All Capacities</option>
+                            <option value="4">4 Seater</option>
+                            <option value="5">5 Seater</option>
+                            <option value="6">6 Seater</option>
+                            <option value="7">7 Seater</option>
+                        </select>
+                    </div>
+
+                    <!-- Mileage Slider -->
+                    <div class="form-group">
+                        <label for="mileage-slider">
+                            <span>Minimum Target Mileage / EV Range</span>
+                            <span id="mileage-value" class="value-badge">15 kmpl / eq</span>
+                        </label>
+                        <input type="range" id="mileage-slider" min="10.0" max="40.0" step="1.0" value="15.0">
+                        <div class="range-labels">
+                            <span>10 kmpl</span>
+                            <span>40 kmpl/eq</span>
+                        </div>
+                    </div>
+
+                    <!-- ML Algorithm Toggle -->
+                    <div class="form-group separator">
+                        <label>🤖 Select ML Recommendation Algorithm</label>
+                        <div class="algo-toggle-container">
+                            <button type="button" id="algo-knn" class="algo-tab active">KNN (Distance)</button>
+                            <button type="button" id="algo-nb" class="algo-tab">Naive Bayes (Prob)</button>
+                        </div>
+                    </div>
+
+                    <!-- KNN Parameters (Dynamic Show/Hide) -->
+                    <div id="knn-params" class="dynamic-params">
+                        <div class="form-group">
+                            <label>Recommendation Mode</label>
+                            <div class="mode-toggle-container">
+                                <button type="button" id="mode-strict" class="mode-tab active" title="Strict categoricals exact filter, then KNN">Strict Filtering</button>
+                                <button type="button" id="mode-soft" class="mode-tab" title="Combined categorical and numerical spatial search">Soft Matching</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="distance-metric">Similarity Distance Metric</label>
+                            <select id="distance-metric">
+                                <option value="euclidean">Euclidean Distance</option>
+                                <option value="cosine">Cosine Similarity</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Naive Bayes Parameters (Dynamic Show/Hide) -->
+                    <div id="nb-params" class="dynamic-params hidden">
+                        <div class="form-group">
+                            <label for="nb-decay">
+                                <span>Probability Smoothing Weight</span>
+                                <span id="nb-decay-value" class="value-badge">2.5</span>
+                            </label>
+                            <input type="range" id="nb-decay" min="1.0" max="5.0" step="0.5" value="2.5">
+                            <div class="range-labels">
+                                <span>1.0 (Strict)</span>
+                                <span>5.0 (Loose)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Number of Recs -->
+                    <div class="form-group">
+                        <label for="top-n">
+                            <span>Number of Recommendations</span>
+                            <span id="top-n-value" class="value-badge">5</span>
+                        </label>
+                        <input type="range" id="top-n" min="3" max="10" step="1" value="5">
+                    </div>
+                </form>
+            </aside>
+
+            <!-- Main Interactive Tabs Area -->
+            <main class="dashboard-main">
+                <!-- Navigation Tabs -->
+                <nav class="tab-navigation">
+                    <button class="nav-tab active" data-tab="tab-recommender">
+                        <i class="fa-solid fa-bullseye"></i> <span>Car Recommender</span>
+                    </button>
+                    <button class="nav-tab" data-tab="tab-compare">
+                        <i class="fa-solid fa-scale-balanced"></i> <span>Compare Cars</span>
+                    </button>
+                    <button class="nav-tab" data-tab="tab-analytics">
+                        <i class="fa-solid fa-chart-line"></i> <span>Market Analytics</span>
+                    </button>
+                    <button class="nav-tab" data-tab="tab-browse">
+                        <i class="fa-solid fa-magnifying-glass"></i> <span>Browse Catalog</span>
+                    </button>
+                </nav>
+
+                <!-- TAB 1: RECOMMENDATIONS -->
+                <section id="tab-recommender" class="tab-content active">
+                    <div class="tab-subheader">
+                        <h3><i class="fa-solid fa-robot"></i> Top Recommended Vehicles</h3>
+                        <p id="algorithm-description">Evaluating cars with ML models...</p>
+                    </div>
+
+                    <!-- Recommendations Grid -->
+                    <div id="recommendations-grid" class="cards-grid">
+                        <!-- Dynamic Recommended Cards Loaded Here -->
+                    </div>
+
+                    <!-- Recommendations Analysis -->
+                    <div class="analysis-section separator">
+                        <h3><i class="fa-solid fa-chart-bar"></i> Recommendations Analysis</h3>
+                        <div class="charts-row">
+                            <div class="chart-container">
+                                <div id="efficiency-chart" class="plotly-chart"></div>
+                            </div>
+                            <div class="diagnostics-container">
+                                <h4><i class="fa-solid fa-clipboard-check"></i> Mathematical Match Diagnostics</h4>
+                                <p id="diagnostics-text">Spatial distances from vector inputs.</p>
+                                <div class="table-responsive">
+                                    <table class="diagnostics-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Car Model</th>
+                                                <th>Price</th>
+                                                <th>Mileage</th>
+                                                <th>Metric Log</th>
+                                                <th>Match Likeness</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="diagnostics-body">
+                                            <!-- Dynamic Diagnostics Data -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 2: COMPARE CARS -->
+                <section id="tab-compare" class="tab-content">
+                    <div class="tab-subheader">
+                        <h3><i class="fa-solid fa-scale-balanced"></i> Side-by-Side Car Specifications Comparison</h3>
+                        <p>Select any two vehicles from the database to compare features under strict industry standards.</p>
+                    </div>
+
+                    <div class="comparison-selectors">
+                        <div class="selector-box">
+                            <label for="compare-car-a">Select Vehicle A:</label>
+                            <select id="compare-car-a" class="styled-select"></select>
+                        </div>
+                        <div class="selector-box">
+                            <label for="compare-car-b">Select Vehicle B:</label>
+                            <select id="compare-car-b" class="styled-select"></select>
+                        </div>
+                    </div>
+
+                    <div id="comparison-result-container">
+                        <!-- Dynamic Comparison Table Mounted Here -->
+                    </div>
+                    
+                    <div class="compare-info-box">
+                        <p><i class="fa-solid fa-circle-info"></i> <strong>Quick spec note:</strong> Highlighted fields (green background with checkmark ✔) represent mathematically superior characteristics (e.g. higher efficiency/mileage, lower price, larger engine displacement, higher seating capacity) based on standard industry preferences.</p>
+                    </div>
+                </section>
+
+                <!-- TAB 3: MARKET ANALYTICS -->
+                <section id="tab-analytics" class="tab-content">
+                    <div class="tab-subheader">
+                        <h3><i class="fa-solid fa-chart-line"></i> Market Trends & Database Insights</h3>
+                        <p>Evaluate overall distributions, average prices, and peak efficiency trends from the vehicle catalog.</p>
+                    </div>
+
+                    <!-- KPI Statistics Widget Grid -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-blue"><i class="fa-solid fa-car-side"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Available Models</span>
+                                <h4 id="kpi-total-models" class="kpi-value">0</h4>
+                                <span class="kpi-delta">Multi-Brand Fleet</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-green"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Average Catalog Price</span>
+                                <h4 id="kpi-avg-price" class="kpi-value">₹0.00 L</h4>
+                                <span class="kpi-delta">Competitive Scale</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-yellow"><i class="fa-solid fa-leaf"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Peak Efficiency Model</span>
+                                <h4 id="kpi-peak-efficiency" class="kpi-value">0 kmpl</h4>
+                                <span id="kpi-peak-car" class="kpi-delta">Car Model</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-purple"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Most Budget Friendly</span>
+                                <h4 id="kpi-cheapest-price" class="kpi-value">₹0.00 L</h4>
+                                <span id="kpi-cheapest-car" class="kpi-delta">Car Model</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytical Charts Row 1 -->
+                    <div class="charts-grid-two">
+                        <div class="chart-container-large">
+                            <div id="fuel-distribution-chart" class="plotly-chart-large"></div>
+                        </div>
+                        <div class="chart-container-large">
+                            <div id="price-distribution-chart" class="plotly-chart-large"></div>
+                        </div>
+                    </div>
+
+                    <!-- Analytical Charts Row 2 -->
+                    <div class="analytics-budget-section separator">
+                        <div class="slider-row">
+                            <label for="budget-filter-slider">
+                                <span>Filter Target Limit for Budget Chart (₹ Lakhs)</span>
+                                <span id="budget-filter-value" class="value-badge">₹30.0L</span>
+                            </label>
+                            <input type="range" id="budget-filter-slider" min="5.0" max="140.0" step="5.0" value="30.0">
+                        </div>
+                        <div class="chart-container-full">
+                            <div id="budget-cars-chart" class="plotly-chart-full"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 4: BROWSE CATALOG -->
+                <section id="tab-browse" class="tab-content">
+                    <div class="tab-subheader">
+                        <h3><i class="fa-solid fa-database"></i> Explore Vehicle Specifications Catalog</h3>
+                        <p>Use search terms or tables filters to browse full technical specifications across the vehicle catalog.</p>
+                    </div>
+
+                    <!-- Filters controls -->
+                    <div class="catalog-filters">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="catalog-search" placeholder="Search by Car or Brand Name... e.g. Swift, Tata, EV">
+                        </div>
+                        <div class="sort-box">
+                            <label for="catalog-sort">Sort Data By:</label>
+                            <select id="catalog-sort" class="styled-select">
+                                <option value="price-low">Price (Low to High)</option>
+                                <option value="price-high">Price (High to Low)</option>
+                                <option value="mileage-high">Mileage (High to Low)</option>
+                            </select>
+                        </div>
+                        <div class="limit-box">
+                            <label for="catalog-limit">Display Count:</label>
+                            <select id="catalog-limit" class="styled-select">
+                                <option value="10">10 Rows</option>
+                                <option value="25" selected>25 Rows</option>
+                                <option value="50">50 Rows</option>
+                                <option value="100">100 Rows</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Data Catalog Table -->
+                    <p id="catalog-count-summary" class="table-summary-text">Showing 25 of 635 matching vehicles:</p>
+                    <div class="table-responsive border-container">
+                        <table class="catalog-table">
+                            <thead>
+                                <tr>
+                                    <th>Car Model</th>
+                                    <th>Brand</th>
+                                    <th>Price (Lakhs)</th>
+                                    <th>Mileage / Range</th>
+                                    <th>Fuel Type</th>
+                                    <th>Transmission</th>
+                                    <th>Seats</th>
+                                    <th>Engine (cc)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="catalog-table-body">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Safari Install Help Modal / Info Box -->
+    <div id="ios-install-modal" class="ios-modal">
+        <div class="ios-modal-content">
+            <button id="ios-modal-close" class="ios-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="ios-modal-header">
+                <img src="./assets/app_icon.png" alt="App Logo" class="modal-logo">
+                <h3>Download Car Recommendation System</h3>
+            </div>
+            <div class="ios-modal-body">
+                <p>Install this app on your iPhone or iPad to open it in a beautiful, full-screen standalone window!</p>
+                <ol class="ios-install-steps">
+                    <li>Tap the <strong>Share</strong> button <i class="fa-solid fa-arrow-up-from-bracket icon-blue"></i> in your Safari browser (at the bottom of the screen).</li>
+                    <li>Scroll down and tap <strong>"Add to Home Screen"</strong> <i class="fa-regular fa-square-plus icon-blue"></i>.</li>
+                    <li>Tap <strong>Add</strong> in the top-right corner to download it onto your device!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="./index.js"></script>
+</body>
+</html>
