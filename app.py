@@ -2,11 +2,22 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+from PIL import Image
+
+# Resolve paths relative to the application directory
+DIR_PATH = os.path.dirname(os.path.abspath(__file__))
+ICON_PATH = os.path.join(DIR_PATH, "assets", "app_icon.png")
+
+# Load custom icon if available, fallback to emoji
+try:
+    app_icon = Image.open(ICON_PATH)
+except Exception:
+    app_icon = "🚗"
 
 # Set page configurations
 st.set_page_config(
-    page_title="AI-Powered Car Recommender",
-    page_icon="🚗",
+    page_title="Car Recommendation System",
+    page_icon=app_icon,
     layout="wide",
     initial_sidebar_state="expanded"
 )
