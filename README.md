@@ -1,4 +1,4 @@
-# AI-Powered Car Recommendation System 🚗🤖
+# AI-Powered Car Recommender 🚗🤖
 
 An advanced, interactive web application designed to recommend ideal passenger vehicles based on user preferences. This system utilizes a **K-Nearest Neighbors (KNN)** machine learning algorithm, Scikit-learn, Pandas, Plotly, and Streamlit, providing a polished and comprehensive implementation suitable for a **final-year engineering mini-project**.
 

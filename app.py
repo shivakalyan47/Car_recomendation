@@ -16,7 +16,7 @@ except Exception:
 
 # Set page configurations
 st.set_page_config(
-    page_title="Car Recommendation System",
+    page_title="Car Recommender",
     page_icon=app_icon,
     layout="wide",
     initial_sidebar_state="expanded"
@@ -195,7 +195,7 @@ except Exception as e:
     st.stop()
 
 # Header Section
-st.markdown("<h1 class='main-title'>AI-Powered Car Recommendation System</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-title'>AI-Powered Car Recommender</h1>", unsafe_allow_html=True)
 st.markdown("<p class='sub-title'>Advanced Machine Learning Assisted Automobile Discovery (KNN & Naive Bayes)</p>", unsafe_allow_html=True)
 
 # Sidebar - User Inputs

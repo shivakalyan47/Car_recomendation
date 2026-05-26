@@ -1,7 +1,7 @@
 {
-  "name": "Car Recommendation System",
-  "short_name": "Car Recs",
-  "description": "AI-Powered Car Recommendation System using KNN and Naive Bayes",
+  "name": "Car Recommender",
+  "short_name": "Car Recommender",
+  "description": "AI-Powered Car Recommender using KNN and Naive Bayes",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0B0C10",
