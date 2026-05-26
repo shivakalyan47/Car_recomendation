@@ -34,7 +34,7 @@ st.markdown("""
     
     /* Title and Header styling */
     .main-title {
-        font-size: 2.8rem;
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
         font-weight: 700;
         background: linear-gradient(135deg, #FF4B4B 0%, #8E2DE2 50%, #4A00E0 100%);
         -webkit-background-clip: text;
@@ -43,7 +43,7 @@ st.markdown("""
         margin-bottom: 0.5rem;
     }
     .sub-title {
-        font-size: 1.1rem;
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
         color: #6C7A89;
         text-align: center;
         margin-bottom: 2rem;
@@ -116,6 +116,39 @@ st.markdown("""
     hr {
         margin: 1.5rem 0;
         border-color: #ECEFF1;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+        .main-title {
+            margin-bottom: 0.8rem;
+            line-height: 1.25;
+        }
+        .sub-title {
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+        .car-card {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .car-card:hover {
+            transform: none; /* Avoid hover shift on touch devices */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .price-tag {
+            font-size: 1.2rem;
+        }
+        /* Spec tables inside cards on mobile */
+        .spec-table td {
+            padding: 4px 0;
+            font-size: 0.85rem;
+        }
+        /* Badges styling on mobile */
+        .badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -408,7 +441,8 @@ with tab2:
         engine_a, engine_b = get_highlight_span(car_a['Engine'], car_b['Engine'], lower_is_better=False)
         
         st.markdown(f"""
-        <table style="width:100%; border-collapse:collapse; margin-top:20px; font-size:1.05rem;">
+        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%;">
+        <table style="width:100%; border-collapse:collapse; margin-top:20px; font-size:1.05rem; min-width: 600px;">
             <thead>
                 <tr style="background-color:#F5F7F8; border-bottom:2px solid #DCE4EC;">
                     <th style="padding:15px; text-align:left; width:30%;">Feature Specification</th>
@@ -454,6 +488,7 @@ with tab2:
                 </tr>
             </tbody>
         </table>
+        </div>
         """, unsafe_allow_html=True)
         
         # Summary analysis of which is better
