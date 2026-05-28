@@ -443,6 +443,9 @@ function runMLRecommendations() {
     renderRecommendedCards(recommendations);
     renderDiagnostics(recommendations, isKNN);
     plotEfficiencyComparison(recommendations);
+    
+    // Compute side-by-side comparison diagnostics
+    runAlgorithmComparison();
 }
 
 function getActiveQuery() {
@@ -1082,3 +1085,257 @@ function setupSliderWithCallback(sliderId, badgeId, formatter) {
         badge.innerText = formatter(e.target.value);
     });
 }
+
+// ==========================================
+// ALGORITHM COMPARISON SUITE (KNN VS NAIVE BAYES)
+// ==========================================
+
+function calculateConstraintAccuracy(car, query) {
+    const priceOk = car['Price'] <= query.price;
+    const mileageOk = car['Mileage'] >= query.mileage;
+    const fuelOk = query.fuel === 'All' || car['Fuel Type'] === query.fuel;
+    const transOk = query.transmission === 'All' || car['Transmission'] === query.transmission;
+    const seatsOk = query.seats === 'All' || car['Seats'] === query.seats;
+    
+    const satisfied = (priceOk ? 1 : 0) + (mileageOk ? 1 : 0) + (fuelOk ? 1 : 0) + (transOk ? 1 : 0) + (seatsOk ? 1 : 0);
+    return (satisfied / 5) * 100;
+}
+
+function runAlgorithmComparison() {
+    const query = getActiveQuery();
+    const topN = parseInt(document.getElementById('top-n').value);
+    
+    const mode = document.getElementById('mode-strict').classList.contains('active') ? 'Strict' : 'Soft';
+    const metric = document.getElementById('distance-metric').value;
+    const decayFactor = parseFloat(document.getElementById('nb-decay').value);
+    
+    // Run both models concurrently
+    const knnRecs = runKNN(query, topN, mode, metric);
+    const nbRecs = runNaiveBayes(query, topN, decayFactor);
+    
+    // 1. Calculate Overlap
+    const knnNames = knnRecs.map(c => c['Car Name']);
+    const nbNames = nbRecs.map(c => c['Car Name']);
+    const overlap = knnNames.filter(name => nbNames.includes(name));
+    const overlapPercent = topN > 0 ? (overlap.length / topN) * 100 : 0;
+    
+    // Update Overlap KPIs
+    const overlapVal = document.getElementById('compare-kpi-overlap');
+    const overlapDetail = document.getElementById('compare-kpi-overlap-detail');
+    if (overlapVal && overlapDetail) {
+        overlapVal.innerText = `${overlapPercent.toFixed(0)}%`;
+        overlapDetail.innerText = `${overlap.length} out of ${topN} cars common`;
+    }
+    
+    // 2. Calculate average confidence and constraint accuracies
+    let knnConfSum = 0;
+    let knnAccSum = 0;
+    knnRecs.forEach(car => {
+        knnConfSum += car.ConfidenceScore;
+        knnAccSum += calculateConstraintAccuracy(car, query);
+    });
+    const knnAvgConf = knnRecs.length > 0 ? (knnConfSum / knnRecs.length) : 0;
+    const knnAvgAcc = knnRecs.length > 0 ? (knnAccSum / knnRecs.length) : 0;
+    
+    let nbConfSum = 0;
+    let nbAccSum = 0;
+    nbRecs.forEach(car => {
+        nbConfSum += car.ConfidenceScore;
+        nbAccSum += calculateConstraintAccuracy(car, query);
+    });
+    const nbAvgConf = nbRecs.length > 0 ? (nbConfSum / nbRecs.length) : 0;
+    const nbAvgAcc = nbRecs.length > 0 ? (nbAccSum / nbRecs.length) : 0;
+    
+    // Update Accuracies KPIs
+    const knnAccKpi = document.getElementById('compare-kpi-knn-acc');
+    const nbAccKpi = document.getElementById('compare-kpi-nb-acc');
+    if (knnAccKpi) knnAccKpi.innerText = `${knnAvgAcc.toFixed(1)}%`;
+    if (nbAccKpi) nbAccKpi.innerText = `${nbAvgAcc.toFixed(1)}%`;
+    
+    // 3. Render side-by-side cards lists
+    renderComparisonCards(knnRecs, query, 'knn-compare-list');
+    renderComparisonCards(nbRecs, query, 'nb-compare-list');
+    
+    // 4. Render comparative diagnostics table
+    const tbody = document.getElementById('compare-diagnostics-body');
+    if (tbody) {
+        tbody.innerHTML = '';
+        
+        if (knnRecs.length === 0 && nbRecs.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted);">No recommendations computed to analyze.</td></tr>';
+        } else {
+            knnRecs.forEach((car, index) => {
+                const constAcc = calculateConstraintAccuracy(car, query);
+                tbody.insertAdjacentHTML('beforeend', `
+                    <tr>
+                        <td><span class="value-badge" style="background:rgba(142,45,226,0.15); color:#AB63FA;">KNN #${index+1}</span></td>
+                        <td><strong>${car['Car Name']}</strong></td>
+                        <td><span style="font-weight:600; color:var(--green-success);">${car.ConfidenceScore.toFixed(1)}%</span></td>
+                        <td style="font-family:monospace;">${car.Distance.toFixed(4)}</td>
+                        <td><strong style="color: ${constAcc >= 90 ? 'var(--green-success)' : constAcc >= 70 ? '#FFA726' : 'var(--red-error)'}">${constAcc.toFixed(0)}%</strong></td>
+                    </tr>
+                `);
+            });
+            
+            nbRecs.forEach((car, index) => {
+                const constAcc = calculateConstraintAccuracy(car, query);
+                tbody.insertAdjacentHTML('beforeend', `
+                    <tr>
+                        <td><span class="value-badge" style="background:rgba(0,230,118,0.15); color:#00E676;">NB #${index+1}</span></td>
+                        <td><strong>${car['Car Name']}</strong></td>
+                        <td><span style="font-weight:600; color:var(--green-success);">${car.ConfidenceScore.toFixed(1)}%</span></td>
+                        <td style="font-family:monospace;">${car.Distance.toFixed(4)}</td>
+                        <td><strong style="color: ${constAcc >= 90 ? 'var(--green-success)' : constAcc >= 70 ? '#FFA726' : 'var(--red-error)'}">${constAcc.toFixed(0)}%</strong></td>
+                    </tr>
+                `);
+            });
+        }
+    }
+    
+    // 5. Plotly Grouped Bar Chart comparison
+    plotAlgoComparisonChart(knnAvgConf, knnAvgAcc, nbAvgConf, nbAvgAcc);
+}
+
+function renderComparisonCards(recs, query, elementId) {
+    const listElement = document.getElementById(elementId);
+    if (!listElement) return;
+    listElement.innerHTML = '';
+    
+    if (recs.length === 0) {
+        listElement.innerHTML = `
+            <div class="warning-card" style="padding:15px; margin: 10px 0; border:1px dashed rgba(255,167,38,0.25);">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size:1.5rem; margin-bottom:5px; color:#FFA726;"></i>
+                <p style="font-size:0.85rem; color:var(--text-secondary);">No recommendations found under current strict criteria. Switch recommendation mode to Soft Matching or relax preferred filters in sidebar.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    recs.forEach(car => {
+        const ftClass = `badge-${car['Fuel Type'].toLowerCase()}`;
+        const transClass = `badge-${car['Transmission'].toLowerCase()}`;
+        const engineDisplay = car['Engine'] > 0 ? `${car['Engine']} cc` : 'Electric';
+        const unit = car['Fuel Type'] === 'Electric' ? 'km/charge' : 'kmpl';
+        
+        const priceOk = car['Price'] <= query.price;
+        const mileageOk = car['Mileage'] >= query.mileage;
+        const fuelOk = query.fuel === 'All' || car['Fuel Type'] === query.fuel;
+        const transOk = query.transmission === 'All' || car['Transmission'] === query.transmission;
+        const seatsOk = query.seats === 'All' || car['Seats'] === query.seats;
+        
+        const satisfiedCount = (priceOk ? 1 : 0) + (mileageOk ? 1 : 0) + (fuelOk ? 1 : 0) + (transOk ? 1 : 0) + (seatsOk ? 1 : 0);
+        const constAcc = (satisfiedCount / 5) * 100;
+        
+        let accColor = 'conf-high';
+        if (constAcc < 70) accColor = 'conf-low';
+        else if (constAcc < 90) accColor = 'conf-med';
+        
+        const conf = car.ConfidenceScore;
+        let confColor = 'conf-high';
+        if (conf < 70) confColor = 'conf-low';
+        else if (conf < 85) confColor = 'conf-med';
+        
+        const cardHTML = `
+            <div class="car-card comparison-car-card" style="margin-bottom: 15px; padding: 18px; min-height: 200px;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <div style="flex: 1; min-width: 0;">
+                        <span class="brand-label" style="font-size:0.7rem;">${car['Company Name']}</span>
+                        <h4 class="car-title" style="font-size:1.1rem; margin:2px 0 8px 0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${car['Car Name']}</h4>
+                    </div>
+                    <div style="text-align:right; flex-shrink: 0; margin-left: 10px;">
+                        <span class="confidence-indicator ${confColor}" style="font-size:0.78rem;"><i class="fa-solid fa-bolt"></i> ${conf}% Match</span>
+                    </div>
+                </div>
+                
+                <div class="badges-row" style="margin-bottom:8px; gap:4px;">
+                    <span class="badge ${ftClass}" style="font-size:0.7rem; padding: 2px 8px;">${car['Fuel Type']}</span>
+                    <span class="badge ${transClass}" style="font-size:0.7rem; padding: 2px 8px;">${car['Transmission']}</span>
+                </div>
+                
+                <div class="compare-spec-summary" style="font-size:0.8rem; margin-bottom:10px; border-bottom:1px solid var(--border-glass); padding-bottom:6px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
+                        <span style="color:var(--text-secondary);">Price:</span>
+                        <strong style="color:var(--green-success);">₹${car['Price'].toFixed(2)}L</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:var(--text-secondary);">Efficiency:</span>
+                        <strong style="color:var(--text-primary);">${car['Mileage']} ${unit}</strong>
+                    </div>
+                </div>
+                
+                <!-- Constraint Checklist -->
+                <div class="constraint-checklist" style="font-size:0.72rem; color:var(--text-secondary); background:rgba(255,255,255,0.01); border: 1px solid var(--border-glass); padding:8px; border-radius:8px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                        <span>Constraint Accuracy:</span>
+                        <strong class="${accColor}">${constAcc.toFixed(0)}% (${satisfiedCount}/5)</strong>
+                    </div>
+                    <div class="checklist-items" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; font-size:0.68rem;">
+                        <span style="color:${priceOk ? 'var(--green-success)' : 'var(--text-muted)'}; opacity: ${priceOk ? '1' : '0.5'};"><i class="fa-solid ${priceOk ? 'fa-check' : 'fa-xmark'}"></i> Price</span>
+                        <span style="color:${mileageOk ? 'var(--green-success)' : 'var(--text-muted)'}; opacity: ${mileageOk ? '1' : '0.5'};"><i class="fa-solid ${mileageOk ? 'fa-check' : 'fa-xmark'}"></i> Mileage</span>
+                        <span style="color:${fuelOk ? 'var(--green-success)' : 'var(--text-muted)'}; opacity: ${fuelOk ? '1' : '0.5'};"><i class="fa-solid ${fuelOk ? 'fa-check' : 'fa-xmark'}"></i> Fuel</span>
+                        <span style="color:${transOk ? 'var(--green-success)' : 'var(--text-muted)'}; opacity: ${transOk ? '1' : '0.5'};"><i class="fa-solid ${transOk ? 'fa-check' : 'fa-xmark'}"></i> Trans</span>
+                        <span style="color:${seatsOk ? 'var(--green-success)' : 'var(--text-muted)'}; opacity: ${seatsOk ? '1' : '0.5'};"><i class="fa-solid ${seatsOk ? 'fa-check' : 'fa-xmark'}"></i> Seats</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        listElement.insertAdjacentHTML('beforeend', cardHTML);
+    });
+}
+
+function plotAlgoComparisonChart(knnAvgConf, knnAvgAcc, nbAvgConf, nbAvgAcc) {
+    const element = document.getElementById('algo-comparison-chart');
+    if (!element) return;
+    
+    const trace1 = {
+        x: ['KNN Model', 'Naive Bayes'],
+        y: [knnAvgConf, nbAvgConf],
+        name: 'Average Match Confidence',
+        type: 'bar',
+        marker: {
+            color: '#AB63FA'
+        },
+        hovertemplate: '<b>%{x}</b><br>Avg Confidence: %{y:.2f}%<extra></extra>'
+    };
+    
+    const trace2 = {
+        x: ['KNN Model', 'Naive Bayes'],
+        y: [knnAvgAcc, nbAvgAcc],
+        name: 'Avg Constraint Satisfaction',
+        type: 'bar',
+        marker: {
+            color: '#00E676'
+        },
+        hovertemplate: '<b>%{x}</b><br>Avg Accuracy: %{y:.2f}%<extra></extra>'
+    };
+    
+    const layout = {
+        title: {
+            text: 'Algorithm Accuracy & Match Score Comparison',
+            font: { color: '#ffffff', family: 'Outfit', size: 14 }
+        },
+        barmode: 'group',
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        xaxis: {
+            tickfont: { color: '#9FA6B2' },
+        },
+        yaxis: {
+            gridcolor: 'rgba(255,255,255,0.05)',
+            tickfont: { color: '#9FA6B2' },
+            title: { text: 'Percentage (%)', font: { color: '#9FA6B2', size: 10 } },
+            range: [0, 105]
+        },
+        legend: {
+            font: { color: '#9FA6B2', size: 10 },
+            orientation: 'h',
+            y: -0.2
+        },
+        margin: { t: 40, b: 60, l: 45, r: 10 },
+        height: 320
+    };
+    
+    Plotly.newPlot(element, [trace1, trace2], layout, { responsive: true, displayModeBar: false });
+}
+

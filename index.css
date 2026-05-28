@@ -1185,3 +1185,90 @@ select:focus, select:hover {
         min-width: 100%;
     }
 }
+
+/* 🤖 ALGORITHM COMPARISON SPLIT VIEW */
+.algo-split-view {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.algo-column {
+    flex: 1;
+    min-width: 320px;
+    background: var(--card-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: var(--glow-shadow);
+}
+
+.algo-column-header {
+    border-bottom: 1px solid var(--border-glass);
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.algo-column-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    border-radius: 3px;
+}
+
+.algo-column-header.knn-theme::after {
+    background: var(--primary-gradient);
+}
+
+.algo-column-header.nb-theme::after {
+    background: linear-gradient(135deg, #00E676 0%, #00B0FF 100%);
+}
+
+.algo-column-header h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.algo-column-header.knn-theme h4 {
+    color: var(--secondary-neon);
+}
+
+.algo-column-header.nb-theme h4 {
+    color: var(--green-success);
+}
+
+.algo-column-header p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+.algo-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.comparison-car-card {
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.01) !important;
+}
+
+.comparison-car-card:hover {
+    background: var(--card-hover) !important;
+}
+

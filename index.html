@@ -183,6 +183,9 @@
                     <button class="nav-tab" data-tab="tab-browse">
                         <i class="fa-solid fa-magnifying-glass"></i> <span>Browse Catalog</span>
                     </button>
+                    <button class="nav-tab" data-tab="tab-algo-compare">
+                        <i class="fa-solid fa-robot"></i> <span>Compare Algorithms</span>
+                    </button>
                 </nav>
 
                 <!-- TAB 1: RECOMMENDATIONS -->
@@ -376,6 +379,95 @@
                             </tbody>
                         </table>
                     </div>
+                </section>
+
+                <!-- TAB 5: ALGORITHM COMPARISON -->
+                <section id="tab-algo-compare" class="tab-content">
+                    <div class="tab-subheader">
+                        <h3><i class="fa-solid fa-robot"></i> Algorithm Accuracy & Overlap Analysis</h3>
+                        <p>Evaluate recommendations from K-Nearest Neighbors and Naive Bayes models side-by-side on active queries.</p>
+                    </div>
+
+                    <!-- Comparison KPI Widgets Grid -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-blue"><i class="fa-solid fa-arrows-spin"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Recommendations Overlap</span>
+                                <h4 id="compare-kpi-overlap" class="kpi-value">0%</h4>
+                                <span id="compare-kpi-overlap-detail" class="kpi-delta">0 out of 5 cars common</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-purple"><i class="fa-solid fa-bullseye"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">KNN Avg Constraint Accuracy</span>
+                                <h4 id="compare-kpi-knn-acc" class="kpi-value">0.0%</h4>
+                                <span class="kpi-delta">Matches user inputs</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-green"><i class="fa-solid fa-square-poll-vertical"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">NB Avg Constraint Accuracy</span>
+                                <h4 id="compare-kpi-nb-acc" class="kpi-value">0.0%</h4>
+                                <span class="kpi-delta">Matches user inputs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side-by-Side Recommendations Lists -->
+                    <div class="algo-split-view">
+                        <div class="algo-column">
+                            <div class="algo-column-header knn-theme">
+                                <h4><i class="fa-solid fa-location-crosshairs"></i> KNN Recommendations</h4>
+                                <p id="knn-compare-desc">Distance-based similarity recommendations</p>
+                            </div>
+                            <div id="knn-compare-list" class="algo-cards-container">
+                                <!-- Dynamic KNN Cards -->
+                            </div>
+                        </div>
+                        <div class="algo-column">
+                            <div class="algo-column-header nb-theme">
+                                <h4><i class="fa-solid fa-chart-pie"></i> Naive Bayes Recommendations</h4>
+                                <p id="nb-compare-desc">Probability density based recommendations</p>
+                            </div>
+                            <div id="nb-compare-list" class="algo-cards-container">
+                                <!-- Dynamic Naive Bayes Cards -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytical Comparison Charts & Diagnostics -->
+                    <div class="analysis-section separator">
+                        <h3><i class="fa-solid fa-chart-simple"></i> Accuracy & Confidence Diagnostics</h3>
+                        <div class="charts-row">
+                            <div class="chart-container">
+                                <div id="algo-comparison-chart" class="plotly-chart"></div>
+                            </div>
+                            <div class="diagnostics-container">
+                                <h4><i class="fa-solid fa-clipboard-list"></i> Side-by-Side Diagnostic Summary</h4>
+                                <p>Comparison of each algorithm's matches, distance/log-likelihood metrics, and constraint satisfaction accuracy.</p>
+                                <div class="table-responsive border-container">
+                                    <table class="diagnostics-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Algorithm</th>
+                                                <th>Vehicle Model</th>
+                                                <th>Confidence</th>
+                                                <th>Metric Log</th>
+                                                <th>Constraint Acc.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="compare-diagnostics-body">
+                                            <!-- Dynamic Rows -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 </section>
             </main>
         </div>

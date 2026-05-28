@@ -287,11 +287,12 @@ query = {
 }
 
 # --- TABS LAYOUT ---
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "🎯 Car Recommender", 
     "⚖️ Compare Cars", 
     "📊 Market Analytics", 
-    "🔍 Browse Catalog"
+    "🔍 Browse Catalog",
+    "🤖 Compare Algorithms"
 ])
 
 # ----------------- TAB 1: RECOMMENDATIONS -----------------
@@ -575,3 +576,248 @@ with tab4:
                                  .background_gradient(subset=['Mileage'], cmap='Greens'),
         use_container_width=True
     )
+
+# ----------------- TAB 5: ALGORITHM COMPARISON -----------------
+with tab5:
+    st.subheader("🤖 Algorithm Accuracy & Overlap Analysis")
+    st.write(
+        "Compare the recommendations, match confidence, and constraint satisfaction accuracy "
+        "between **K-Nearest Neighbors (KNN)** and **Naive Bayes Classifier** side-by-side on your target preferences."
+    )
+
+    # 1. Run both models concurrently
+    # Get parameters safely with defaults in case they are not in scope (e.g. Naive Bayes active)
+    try:
+        knn_mode = 'Strict' if recommendation_mode == "Strict Filtering" else 'Soft'
+    except NameError:
+        knn_mode = 'Strict'
+        
+    try:
+        knn_metric_key = 'euclidean' if distance_metric == "Euclidean Distance" else 'cosine'
+    except NameError:
+        knn_metric_key = 'euclidean'
+    
+    # KNN Recommendations
+    knn_recs = recommend_cars(preprocessor, query, top_n=top_n, mode=knn_mode, metric=knn_metric_key)
+    
+    # Naive Bayes Recommendations
+    try:
+        nb_decay = decay_factor
+    except NameError:
+        nb_decay = 2.5
+    nb_recs = recommend_cars_nb(preprocessor, query, top_n=top_n, decay_factor=nb_decay)
+
+    # 2. Calculate Overlap
+    if not knn_recs.empty and not nb_recs.empty:
+        knn_names = set(knn_recs['Car Name'])
+        nb_names = set(nb_recs['Car Name'])
+        overlap_names = knn_names.intersection(nb_names)
+        overlap_percent = (len(overlap_names) / top_n) * 100 if top_n > 0 else 0
+    else:
+        overlap_names = set()
+        overlap_percent = 0.0
+
+    # 3. Helper function for Constraint Accuracy
+    def get_car_constraint_accuracy(car, q):
+        price_ok = 1.0 if car['Price'] <= q['Price'] else 0.0
+        mileage_ok = 1.0 if car['Mileage'] >= q['Mileage'] else 0.0
+        fuel_ok = 1.0 if q['Fuel Type'] == 'All' or car['Fuel Type'] == q['Fuel Type'] else 0.0
+        trans_ok = 1.0 if q['Transmission'] == 'All' or car['Transmission'] == q['Transmission'] else 0.0
+        seats_ok = 1.0 if q['Seats'] == 'All' or int(car['Seats']) == int(q['Seats']) else 0.0
+        
+        satisfied = price_ok + mileage_ok + fuel_ok + trans_ok + seats_ok
+        return (satisfied / 5.0) * 100.0
+
+    # 4. Calculate average confidence and constraint satisfaction accuracy
+    knn_avg_conf = 0.0
+    knn_avg_acc = 0.0
+    if not knn_recs.empty:
+        knn_avg_conf = knn_recs['Confidence Score'].mean()
+        knn_recs['Constraint Accuracy'] = knn_recs.apply(lambda r: get_car_constraint_accuracy(r, query), axis=1)
+        knn_avg_acc = knn_recs['Constraint Accuracy'].mean()
+        
+    nb_avg_conf = 0.0
+    nb_avg_acc = 0.0
+    if not nb_recs.empty:
+        nb_avg_conf = nb_recs['Confidence Score'].mean()
+        nb_recs['Constraint Accuracy'] = nb_recs.apply(lambda r: get_car_constraint_accuracy(r, query), axis=1)
+        nb_avg_acc = nb_recs['Constraint Accuracy'].mean()
+
+    # 5. Display KPI Cards
+    kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
+    with kpi_col1:
+        st.metric(
+            label="Recommendations Overlap",
+            value=f"{overlap_percent:.0f}%",
+            delta=f"{len(overlap_names)} of {top_n} cars common"
+        )
+    with kpi_col2:
+        st.metric(
+            label="KNN Avg Constraint Accuracy",
+            value=f"{knn_avg_acc:.1f}%",
+            delta="Matches target preferences"
+        )
+    with kpi_col3:
+        st.metric(
+            label="NB Avg Constraint Accuracy",
+            value=f"{nb_avg_acc:.1f}%",
+            delta="Matches target preferences"
+        )
+
+    st.markdown("---")
+
+    # 6. Side-by-side Recommendations Columns
+    rec_col1, rec_col2 = st.columns(2)
+    
+    with rec_col1:
+        st.markdown("### 🎯 K-Nearest Neighbors (KNN)")
+        if knn_recs.empty:
+            st.warning("No KNN recommendations returned under strict constraints.")
+        else:
+            for idx, car in knn_recs.iterrows():
+                ft_class = f"badge-{car['Fuel Type'].lower()}"
+                trans_class = "badge-manual" if car['Transmission'] == "Manual" else "badge-auto"
+                
+                # Check target matches
+                price_ok = car['Price'] <= query['Price']
+                mileage_ok = car['Mileage'] >= query['Mileage']
+                fuel_ok = query['Fuel Type'] == 'All' or car['Fuel Type'] == query['Fuel Type']
+                trans_ok = query['Transmission'] == 'All' or car['Transmission'] == query['Transmission']
+                seats_ok = query['Seats'] == 'All' or int(car['Seats']) == int(query['Seats'])
+                
+                satisfied_count = sum([price_ok, mileage_ok, fuel_ok, trans_ok, seats_ok])
+                acc = (satisfied_count / 5.0) * 100.0
+                
+                st.markdown(f"""
+                <div class="car-card" style="border: 1px solid #AB63FA; border-left: 5px solid #AB63FA; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                    <span style="font-size:0.75rem; font-weight:700; color:#AB63FA; text-transform:uppercase;">{car['Company Name']}</span>
+                    <h4 style="margin:2px 0 10px 0; color:#2C3E50; font-size:1.15rem;">{car['Car Name']}</h4>
+                    <span class="badge {ft_class}">{car['Fuel Type']}</span>
+                    <span class="badge {trans_class}">{car['Transmission']}</span>
+                    <div style="font-size:0.8rem; margin:10px 0; border-bottom:1px solid #ECEFF1; padding-bottom:5px;">
+                        <div style="display:flex; justify-content:space-between;"><span>Price:</span> <strong>₹{car['Price']:.2f}L</strong></div>
+                        <div style="display:flex; justify-content:space-between;"><span>Efficiency:</span> <strong>{car['Mileage']} kmpl/eq</strong></div>
+                    </div>
+                    <div style="font-size:0.75rem; color:#6C7A89; background:#FAFAFA; padding:6px; border-radius:6px;">
+                        <div style="display:flex; justify-content:space-between; font-weight:600;">
+                            <span>Constraint Accuracy:</span>
+                            <span style="color:#8E24AA;">{acc:.0f}% ({satisfied_count}/5)</span>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                        <div class="price-tag" style="font-size:1.1rem; margin:0; color:#2E7D32;">₹{car['Price']:.2f} L</div>
+                        <span style="font-size:0.85rem; font-weight:600; color:#AB63FA;">⚡ {car['Confidence Score']}% Match</span>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+                st.progress(float(car['Confidence Score']) / 100.0)
+
+    with rec_col2:
+        st.markdown("### 📊 Naive Bayes Classifier")
+        if nb_recs.empty:
+            st.warning("No Naive Bayes recommendations returned.")
+        else:
+            for idx, car in nb_recs.iterrows():
+                ft_class = f"badge-{car['Fuel Type'].lower()}"
+                trans_class = "badge-manual" if car['Transmission'] == "Manual" else "badge-auto"
+                
+                # Check target matches
+                price_ok = car['Price'] <= query['Price']
+                mileage_ok = car['Mileage'] >= query['Mileage']
+                fuel_ok = query['Fuel Type'] == 'All' or car['Fuel Type'] == query['Fuel Type']
+                trans_ok = query['Transmission'] == 'All' or car['Transmission'] == query['Transmission']
+                seats_ok = query['Seats'] == 'All' or int(car['Seats']) == int(query['Seats'])
+                
+                satisfied_count = sum([price_ok, mileage_ok, fuel_ok, trans_ok, seats_ok])
+                acc = (satisfied_count / 5.0) * 100.0
+                
+                st.markdown(f"""
+                <div class="car-card" style="border: 1px solid #00C853; border-left: 5px solid #00C853; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                    <span style="font-size:0.75rem; font-weight:700; color:#00C853; text-transform:uppercase;">{car['Company Name']}</span>
+                    <h4 style="margin:2px 0 10px 0; color:#2C3E50; font-size:1.15rem;">{car['Car Name']}</h4>
+                    <span class="badge {ft_class}">{car['Fuel Type']}</span>
+                    <span class="badge {trans_class}">{car['Transmission']}</span>
+                    <div style="font-size:0.8rem; margin:10px 0; border-bottom:1px solid #ECEFF1; padding-bottom:5px;">
+                        <div style="display:flex; justify-content:space-between;"><span>Price:</span> <strong>₹{car['Price']:.2f}L</strong></div>
+                        <div style="display:flex; justify-content:space-between;"><span>Efficiency:</span> <strong>{car['Mileage']} kmpl/eq</strong></div>
+                    </div>
+                    <div style="font-size:0.75rem; color:#6C7A89; background:#FAFAFA; padding:6px; border-radius:6px;">
+                        <div style="display:flex; justify-content:space-between; font-weight:600;">
+                            <span>Constraint Accuracy:</span>
+                            <span style="color:#2E7D32;">{acc:.0f}% ({satisfied_count}/5)</span>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                        <div class="price-tag" style="font-size:1.1rem; margin:0; color:#2E7D32;">₹{car['Price']:.2f} L</div>
+                        <span style="font-size:0.85rem; font-weight:600; color:#2E7D32;">⚡ {car['Confidence Score']}% Match</span>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+                st.progress(float(car['Confidence Score']) / 100.0)
+
+    # 7. Chart Comparison & Diagnostics Table
+    st.markdown("---")
+    st.subheader("📈 Quantitative Accuracy & Match Summary")
+    
+    chart_col, diag_col = st.columns(2)
+    
+    with chart_col:
+        # Plotly grouped bar chart
+        import plotly.graph_objects as go
+        fig = go.Figure(data=[
+            go.Bar(
+                name='Average Match Confidence',
+                x=['KNN Model', 'Naive Bayes'],
+                y=[float(knn_avg_conf), float(nb_avg_conf)],
+                marker_color='#AB63FA'
+            ),
+            go.Bar(
+                name='Avg Constraint Satisfaction',
+                x=['KNN Model', 'Naive Bayes'],
+                y=[float(knn_avg_acc), float(nb_avg_acc)],
+                marker_color='#00C853'
+            )
+        ])
+        fig.update_layout(
+            barmode='group',
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font=dict(family="Outfit, Arial, sans-serif"),
+            xaxis=dict(showgrid=False),
+            yaxis=dict(gridcolor='rgba(0, 0, 0, 0.05)', title="Percentage (%)", range=[0, 105]),
+            margin=dict(t=30, b=30, l=10, r=10),
+            height=340,
+            legend=dict(orientation="h", yanchor="bottom", y=-0.2, xanchor="center", x=0.5)
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    with diag_col:
+        st.markdown("#### Side-by-Side Diagnostic Summary")
+        st.write("Detailed metrics breakdown for the top recommended cars from each model.")
+        
+        diag_rows = []
+        if not knn_recs.empty:
+            for idx, car in knn_recs.iterrows():
+                diag_rows.append({
+                    'Algorithm': f'KNN #{len(diag_rows)+1}',
+                    'Vehicle Model': car['Car Name'],
+                    'Confidence': f"{car['Confidence Score']:.1f}%",
+                    'Metric Log': f"{car['Distance']:.4f}",
+                    'Constraint Acc.': f"{car['Constraint Accuracy']:.0f}%"
+                })
+        nb_count = 0
+        if not nb_recs.empty:
+            for idx, car in nb_recs.iterrows():
+                nb_count += 1
+                diag_rows.append({
+                    'Algorithm': f'NB #{nb_count}',
+                    'Vehicle Model': car['Car Name'],
+                    'Confidence': f"{car['Confidence Score']:.1f}%",
+                    'Metric Log': f"{car['Distance']:.4f}",
+                    'Constraint Acc.': f"{car['Constraint Accuracy']:.0f}%"
+                })
+                
+        if diag_rows:
+            st.dataframe(pd.DataFrame(diag_rows), use_container_width=True)
+        else:
+            st.write("No diagnostic data available.")
